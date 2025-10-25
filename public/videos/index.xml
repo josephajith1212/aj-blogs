@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blowfish</title>
-    <link>http://localhost:1313/aj-blogs/about/</link>
-    <description>Recent content on Blowfish</description>
+    <title>Videos on Blowfish</title>
+    <link>http://localhost:1313/aj-blogs/videos/</link>
+    <description>Recent content in Videos on Blowfish</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>ajith.joseph.1994@gmail.com (Ajith Joseph)</managingEditor>
     <webMaster>ajith.joseph.1994@gmail.com (Ajith Joseph)</webMaster>
     <copyright>© 2025 Ajith Joseph</copyright>
-    <atom:link href="http://localhost:1313/aj-blogs/about/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/aj-blogs/videos/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title></title>
-      <link>http://localhost:1313/aj-blogs/about/about/</link>
+      <link>http://localhost:1313/aj-blogs/videos/videos/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>ajith.joseph.1994@gmail.com (Ajith Joseph)</author>
-      <guid>http://localhost:1313/aj-blogs/about/about/</guid>
+      <guid>http://localhost:1313/aj-blogs/videos/videos/</guid>
       <description></description>
       
     </item>
