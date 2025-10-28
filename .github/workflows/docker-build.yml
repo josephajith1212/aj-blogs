@@ -22,7 +22,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      
+
       - name: Print image name for debug
         run: echo "IMAGE_NAME is $IMAGE_NAME"
 
@@ -35,5 +35,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ${IMAGE_NAME}:latest
-            ${IMAGE_NAME}:${{ github.sha }}
+            ${{secrets.IMAGE_NAME}}:latest
+            ${{secrets.IMAGE_NAME}}:${{ github.sha }}
