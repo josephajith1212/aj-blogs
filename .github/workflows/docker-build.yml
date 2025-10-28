@@ -8,51 +8,73 @@ on:
 
 env:
   IMAGE_NAME: bozosapien/hugo-site
+  VERSION_FILE: .version  # file to store last version
 
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout code
       - name: Check out code
         uses: actions/checkout@v5
 
+      # Docker login
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Print image name for debug
-        run: echo "IMAGE_NAME is $IMAGE_NAME"
-
+      # Set up Docker Buildx
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-        # Semantic versioning step
-      - name: Determine next semantic version
-        id: semver
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      # Determine next patch version
+      - name: Determine next patch version
+        id: version
         run: |
-          npm install -g semantic-release @semantic-release/commit-analyzer @semantic-release/release-notes-generator
-          VERSION=$(npx semantic-release --dry-run | grep 'The next release version is' | awk '{print $6}')
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
-          echo "Next version: $VERSION"
+          # Initialize version file if it doesn't exist
+          if [ ! -f $VERSION_FILE ]; then
+            echo "v1.0.0" > $VERSION_FILE
+          fi
+          # Read last version
+          LAST_VERSION=$(cat $VERSION_FILE)
+          echo "Last version: $LAST_VERSION"
 
-      - name: Build & push
+          # Extract MAJOR.MINOR.PATCH
+          IFS='.' read -r MAJOR MINOR PATCH <<< "${LAST_VERSION#v}"
+          PATCH=$((PATCH + 1))
+          NEXT_VERSION="v$MAJOR.$MINOR.$PATCH"
+
+          # Save next version back to file
+          echo $NEXT_VERSION > $VERSION_FILE
+
+          # Export for workflow
+          echo "VERSION=$NEXT_VERSION" >> $GITHUB_ENV
+          echo "Next version: $NEXT_VERSION"
+
+      # Build & push Docker images
+      - name: Build & push Docker images
         uses: docker/build-push-action@v6
         with:
           context: .
           push: true
           tags: |
-            ${{env.IMAGE_NAME}}:latest
-            ${{env.IMAGE_NAME}}:${{ env.VERSION }}
+            ${{ env.IMAGE_NAME }}:latest
+            ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
 
-        # Git tag for semantic version
-      - name: Create Git tag for version
+      # Commit and push updated version file
+      - name: Commit version file
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
+          git add $VERSION_FILE
+          git commit -m "Bump version to ${{ env.VERSION }}" || echo "No changes to commit"
+          git push origin main
+
+      # Tag the Git repo
+      - name: Create Git tag
+        run: |
           git tag ${{ env.VERSION }}
           git push origin ${{ env.VERSION }}
