@@ -22,7 +22,9 @@ RUN npx @tailwindcss/cli -c ./tailwind.config.js \
 
 # Return to root and build your Hugo site
 WORKDIR /src
-RUN hugo --minify
+# RUN hugo --minify #commenting this due to Nginx serve issue 
+RUN hugo --baseURL "https://ajlabs.duckdns.org/blog" --minify --destination public/blog
+
 
 # Stage 2: Serve with Nginx
 FROM nginx:alpine
