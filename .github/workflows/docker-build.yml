@@ -9,9 +9,11 @@ on:
 env:
   IMAGE_NAME: bozosapien/hugo-site
   VERSION_FILE: .version  # file to store last version
+  HELM_REPO: https://github.com/josephajith1212/argocd-aj-blogs.git  # Target Helm repo
+  HELM_REPO_PATH: .
 
 jobs:
-  build-and-push:
+  build-push-and-update-helm:
     runs-on: ubuntu-latest
 
     steps:
@@ -78,3 +80,28 @@ jobs:
         run: |
           git tag ${{ env.VERSION }}
           git push origin ${{ env.VERSION }}
+        
+      # Checkout Helm chart repo
+      - name: Checkout Helm repo
+        uses: actions/checkout@v5
+        with:
+          repository: josephajith1212/argocd-aj-blogs
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: helm-chart
+
+      # Update image tag in Helm values.yaml
+      - name: Update image in Helm values.yaml
+        run: |
+          VALUES_FILE="helm-chart/${HELM_REPO_PATH}/values.yaml"
+          echo "Updating image tag in $VALUES_FILE to ${{ env.VERSION }}"
+          yq -i ".image.tag = \"${{ env.VERSION }}\"" $VALUES_FILE
+
+      # Commit and push updated values.yaml to Helm repo
+      - name: Commit & push changes to Helm repo
+        run: |
+          cd helm-chart
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Update image tag to ${{ env.VERSION }}"
+          git push origin main
