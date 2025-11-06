@@ -1,3 +1,9 @@
++++
+date = '2025-10-23T20:36:07-04:00'
+draft = false
+title = 'This is a sample blog - 2'
++++
+
 **Use Cases:**
 
 - Stateful or partitioned workloads
