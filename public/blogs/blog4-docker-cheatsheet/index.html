@@ -1,0 +1,1456 @@
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="en">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  <title>Docker Cheatsheet: Essential Commands for DevOps Engineers &middot; Homepage</title>
+    <meta name="title" content="Docker Cheatsheet: Essential Commands for DevOps Engineers &middot; Homepage">
+
+  
+  
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/blogs/blog4-docker-cheatsheet/">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.2732256cc73428dbe992fa3d83fd55ade6464805c7f60ac6e2c1e597d0d978ae5ae3416c0426067223868e800e2b3d0d9fb5acd5c977acd4e8b27f52d10952c6.css"
+    integrity="sha512-JzIlbMc0KNvpkvo9g/1VreZGSAXH9grG4sHll9DZeK5a40FsBCYGciOGjoAOKz0Nn7Ws1cl3rNTosn9S0QlSxg==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+    
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.90867e4ceecde25580f418994053fd0749d446fd0e8f0028782793ec6434fb0945ecbfe21e6a8b2f788760c0ecc3663aacb155e42e4e73d79ebaebadecd201d2.js"
+      integrity="sha512-kIZ&#43;TO7N4lWA9BiZQFP9B0nURv0OjwAoeCeT7GQ0&#43;wlF7L/iHmqLL3iHYMDsw2Y6rLFV5C5Oc9eeuuut7NIB0g=="
+      data-copy="Copy"
+      data-copied="Copied"></script>
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.b4b722fcb5d42f34f52b30a92f3521b69f403ca9d96d0d6179eb537cb870f5d83fdf1fe836688d95d5c99fefbda4170487711006e56051fa67ea00da10521721.js" integrity="sha512-tLci/LXULzT1KzCpLzUhtp9APKnZbQ1heetTfLhw9dg/3x/oNmiNldXJn&#43;&#43;9pBcEh3EQBuVgUfpn6gDaEFIXIQ=="></script>
+  
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  <meta property="og:url" content="http://localhost:1313/blogs/blog4-docker-cheatsheet/">
+  <meta property="og:site_name" content="Homepage">
+  <meta property="og:title" content="Docker Cheatsheet: Essential Commands for DevOps Engineers">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blogs">
+    <meta property="article:published_time" content="2025-10-23T20:36:07-04:00">
+    <meta property="article:modified_time" content="2025-10-23T20:36:07-04:00">
+    <meta property="og:image" content="http://localhost:1313/blogs/blog4-docker-cheatsheet/featured.jpg">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/blogs/blog4-docker-cheatsheet/featured.jpg">
+  <meta name="twitter:title" content="Docker Cheatsheet: Essential Commands for DevOps Engineers">
+<meta name="twitter:image" content="http://localhost:1313/blogs/blog4-docker-cheatsheet/featured.jpg">
+    <meta property="og:image" content="http://localhost:1313/blogs/blog4-docker-cheatsheet/featured.jpg">
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "",
+    "name": "Docker Cheatsheet: Essential Commands for DevOps Engineers",
+    "headline": "Docker Cheatsheet: Essential Commands for DevOps Engineers",
+    
+    
+    "inLanguage": "en",
+    "url" : "http:\/\/localhost:1313\/blogs\/blog4-docker-cheatsheet\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Ajith Joseph"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-10-23T20:36:07-04:00",
+    "datePublished": "2025-10-23T20:36:07-04:00",
+    
+    "dateModified": "2025-10-23T20:36:07-04:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1818"
+  }]
+  </script>
+
+
+
+  
+  
+    <meta name="author" content="Ajith Joseph">
+  
+  
+    
+      
+        
+      
+    
+      
+        
+          <link href="https://github.com/username" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://linkedin.com/in/username" rel="me">
+        
+      
+    
+  
+
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.03cb160e3cfdb2667a2e2c80d283bebcf63ff8bbc4b629c9ab2babf6fae1d0c07ad470edae783efa4fabda2ac01c58d60e63b98b3c336be8208460f08f4354f5.js" integrity="sha512-A8sWDjz9smZ6LiyA0oO&#43;vPY/&#43;LvEtinJqyur9vrh0MB61HDtrng&#43;&#43;k&#43;r2irAHFjWDmO5izwza&#43;gghGDwj0NU9Q=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>
+        Skip to main content
+      </a>
+    </div>
+    
+    
+      <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px] z-100">
+  <div
+    id="menu-blur"
+    class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom bg-neutral dark:bg-neutral-800"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3 pt-[2px] pr-0 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
+          Homepage
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/blogs/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="">
+    Blogs
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href=""
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="">
+    About
+  </p>
+</a>
+
+
+
+      
+    
+
+    
+
+    
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="Search (/)">
+        <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      </button>
+    
+
+    
+      <div class=" flex items-center">
+        <button
+          id="appearance-switcher"
+          aria-label="Dark mode switcher"
+          type="button"
+          class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+          <div class="flex items-center justify-center dark:hidden">
+            <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+          </div>
+          <div class="items-center justify-center hidden dark:flex">
+            <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+          </div>
+        </button>
+      </div>
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="Search (/)">
+        <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      </button>
+    
+
+    
+      <button
+        id="appearance-switcher-mobile"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/blogs/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="">
+      Blogs
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href=""
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="">
+      About
+    </p>
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+  </div>
+</div>
+
+
+<script
+  type="text/javascript"
+  src="/js/background-blur.min.0ad33cb9c066f652728b2cc09c9ceaf32645544f48e8b6b38f120d86f433ed997da275a49e6151fe0176430c45376812708d84727f3f969101fb44a4345b3f34.js"
+  integrity="sha512-CtM8ucBm9lJyiyzAnJzq8yZFVE9I6LazjxINhvQz7Zl9onWknmFR/gF2QwxFN2gScI2Ecn8/lpEB&#43;0SkNFs/NA=="
+  data-target-id="menu-blur"></script>
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  <article>
+    
+    
+      
+      
+      
+      
+        
+
+
+    <div id="hero" class="h-[150px] md:h-[200px]"></div>
+  
+  <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom">
+    
+    
+      
+    
+    <img
+      id="background-image"
+      src="/blogs/blog4-docker-cheatsheet/featured_hu_c5c810c029263fe1.jpg"
+      alt="Background Image"
+      class="absolute inset-0 w-full h-full object-cover">
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal"></div>
+    <div
+      class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal"></div>
+  </div>
+
+  
+    <div
+      id="background-blur"
+      class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/background-blur.min.0ad33cb9c066f652728b2cc09c9ceaf32645544f48e8b6b38f120d86f433ed997da275a49e6151fe0176430c45376812708d84727f3f969101fb44a4345b3f34.js"
+      integrity="sha512-CtM8ucBm9lJyiyzAnJzq8yZFVE9I6LazjxINhvQz7Zl9onWknmFR/gF2QwxFN2gScI2Ecn8/lpEB&#43;0SkNFs/NA=="
+      data-target-id="background-blur"
+      data-image-id="background-image"
+      data-image-url="/blogs/blog4-docker-cheatsheet/featured.jpg"></script>
+  
+      
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Docker Cheatsheet: Essential Commands for DevOps Engineers
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-10-23T20:36:07-04:00">23 October 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1818 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">9 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+      </div>
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    
+    
+<div class="flex author">
+  
+    
+    
+      
+    
+    
+      
+        
+      
+      <img
+        class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4"
+        width="96"
+        height="96"
+        alt="Ajith Joseph"
+        src="/89587887_5906023272367133617_hu_4c55e75d5ae02232.png">
+    
+  
+  <div class="place-self-center">
+    
+      <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+        Author
+      </div>
+      <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+        Ajith Joseph
+      </div>
+    
+    
+      <div class="text-sm text-neutral-700 dark:text-neutral-400">A little bit about you</div>
+    
+    <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="mailto:josephajith1212@gmail.com"
+          target="_blank"
+          aria-label="Email"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+</span></span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/username"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://linkedin.com/in/username"
+          target="_blank"
+          aria-label="Linkedin"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+</span></span></a
+        >
+      
+    
+  </div>
+
+</div>
+  </div>
+</div>
+
+  
+
+  
+
+  
+    <div class="mb-5"></div>
+  
+
+      
+    </header>
+
+    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+        <div class="article-content max-w-prose mb-20">
+          <p>Docker has become the foundation of modern application deployment. Whether you&rsquo;re containerizing applications, managing development environments, or orchestrating microservices, knowing the right Docker commands can save you hours of troubleshooting. This comprehensive guide walks you through the most useful Docker commands, starting from the basics and progressing to more advanced operations.</p>
+
+<h2 class="relative group">Getting Started: Basic Commands 
+    <div id="getting-started-basic-commands" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#getting-started-basic-commands" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">Check Docker Installation 
+    <div id="check-docker-installation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#check-docker-installation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Before running any Docker commands, verify that Docker is installed and running on your system.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker --version
+</span></span><span class="line"><span class="cl">docker info
+</span></span><span class="line"><span class="cl">docker run hello-world
+</span></span></code></pre></div><p>The <code>docker --version</code> command displays the installed Docker version, <code>docker info</code> shows system-wide information about Docker, and <code>docker run hello-world</code> confirms that Docker daemon is running properly.</p>
+
+<h3 class="relative group">Running Your First Container 
+    <div id="running-your-first-container" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#running-your-first-container" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>The most fundamental Docker command is <code>docker run</code>. This command creates and starts a new container from an image.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run nginx
+</span></span></code></pre></div><p>This pulls the nginx image from Docker Hub and runs it. The container will run in the foreground by default. To run it in the background (detached mode), use the <code>-d</code> flag:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -d nginx
+</span></span><span class="line"><span class="cl">docker run -d --name my-nginx nginx
+</span></span></code></pre></div><p>The <code>--name</code> flag assigns a custom name to your container, making it easier to manage.</p>
+
+<h3 class="relative group">Listing and Managing Containers 
+    <div id="listing-and-managing-containers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#listing-and-managing-containers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>See all running containers:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker ps
+</span></span><span class="line"><span class="cl">docker container ls
+</span></span></code></pre></div><p>To view all containers, including stopped ones:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker ps -a
+</span></span><span class="line"><span class="cl">docker ps -aq
+</span></span></code></pre></div><p>The <code>-q</code> flag shows only container IDs, which is useful for scripting and batch operations.</p>
+
+<h2 class="relative group">Intermediate Operations: Working with Containers 
+    <div id="intermediate-operations-working-with-containers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#intermediate-operations-working-with-containers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">Starting, Stopping, and Removing Containers 
+    <div id="starting-stopping-and-removing-containers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#starting-stopping-and-removing-containers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Stop a running container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker stop &lt;container_id&gt;
+</span></span><span class="line"><span class="cl">docker <span class="nb">kill</span> &lt;container_id&gt;
+</span></span></code></pre></div><p>The <code>stop</code> command sends a SIGTERM signal followed by SIGKILL after a grace period, while <code>kill</code> immediately sends SIGKILL.</p>
+<p>Start a stopped container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker start &lt;container_id&gt;
+</span></span><span class="line"><span class="cl">docker restart &lt;container_id&gt;
+</span></span></code></pre></div><p>Remove a stopped container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker rm &lt;container_id&gt;
+</span></span><span class="line"><span class="cl">docker rm -f &lt;container_id&gt;
+</span></span></code></pre></div><p>The <code>-f</code> flag forces removal of running containers.</p>
+<p>Remove all stopped containers at once:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker container prune
+</span></span><span class="line"><span class="cl">docker rm <span class="k">$(</span>docker ps -aq<span class="k">)</span>
+</span></span></code></pre></div>
+<h3 class="relative group">Accessing Container Logs 
+    <div id="accessing-container-logs" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#accessing-container-logs" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>View the output from a container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker logs &lt;container_id&gt;
+</span></span><span class="line"><span class="cl">docker logs --tail <span class="m">50</span> &lt;container_id&gt;
+</span></span></code></pre></div><p>Follow logs in real-time (like <code>tail -f</code>):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker logs -f &lt;container_id&gt;
+</span></span><span class="line"><span class="cl">docker logs -f --since 10m &lt;container_id&gt;
+</span></span></code></pre></div><p>The <code>--since</code> flag shows logs from a specific time period, and <code>--tail</code> limits the number of lines displayed.</p>
+
+<h3 class="relative group">Executing Commands Inside Containers 
+    <div id="executing-commands-inside-containers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#executing-commands-inside-containers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Run a command inside a container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker <span class="nb">exec</span> &lt;container_id&gt; ls -la
+</span></span><span class="line"><span class="cl">docker <span class="nb">exec</span> &lt;container_id&gt; cat /etc/hosts
+</span></span></code></pre></div><p>To access the container&rsquo;s shell interactively:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker <span class="nb">exec</span> -it &lt;container_id&gt; /bin/bash
+</span></span><span class="line"><span class="cl">docker <span class="nb">exec</span> -it &lt;container_id&gt; sh
+</span></span></code></pre></div><p>The <code>-i</code> flag keeps STDIN open even if not attached, and <code>-t</code> allocates a pseudo-terminal. Together, <code>-it</code> allows you to interact with the container shell just as if you were SSH&rsquo;d into a remote machine.</p>
+
+<h3 class="relative group">Inspecting Containers 
+    <div id="inspecting-containers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#inspecting-containers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Get detailed information about a container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker inspect &lt;container_id&gt;
+</span></span><span class="line"><span class="cl">docker inspect --format<span class="o">=</span><span class="s1">&#39;{{.State.Status}}&#39;</span> &lt;container_id&gt;
+</span></span></code></pre></div><p>The <code>--format</code> flag allows you to extract specific fields using Go templates. This outputs comprehensive JSON data about the container&rsquo;s configuration, network settings, volumes, and environment variables.</p>
+
+<h2 class="relative group">Working with Images 
+    <div id="working-with-images" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#working-with-images" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">Pulling and Searching Images 
+    <div id="pulling-and-searching-images" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#pulling-and-searching-images" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Pull an image from Docker Hub:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker pull ubuntu:22.04
+</span></span><span class="line"><span class="cl">docker pull nginx:latest
+</span></span></code></pre></div><p>Search for images on Docker Hub:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker search nginx
+</span></span><span class="line"><span class="cl">docker search --filter <span class="nv">stars</span><span class="o">=</span><span class="m">100</span> nginx
+</span></span></code></pre></div>
+<h3 class="relative group">Building Your Own Images 
+    <div id="building-your-own-images" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#building-your-own-images" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Create a Dockerfile in your project directory:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> ubuntu:22.04</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> apt-get update <span class="o">&amp;&amp;</span> apt-get install -y python3<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . /app<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 8000</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;python3&#34;</span><span class="p">,</span> <span class="s2">&#34;app.py&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></div><p>Build an image from this Dockerfile:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker build -t my-app:1.0 .
+</span></span><span class="line"><span class="cl">docker build -t my-app:1.0 --no-cache .
+</span></span></code></pre></div><p>The <code>-t</code> flag tags the image with a name and version. The <code>.</code> specifies the build context (current directory). The <code>--no-cache</code> flag ensures a fresh build without using cached layers.</p>
+
+<h3 class="relative group">Listing and Managing Images 
+    <div id="listing-and-managing-images" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#listing-and-managing-images" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>View all images on your system:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker images
+</span></span><span class="line"><span class="cl">docker image ls
+</span></span></code></pre></div><p>View image history and layers:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker <span class="nb">history</span> &lt;image_id&gt;
+</span></span></code></pre></div><p>Remove an image:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker rmi &lt;image_id&gt;
+</span></span><span class="line"><span class="cl">docker image rm &lt;image_id&gt;
+</span></span></code></pre></div><p>Remove all unused images:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker image prune
+</span></span><span class="line"><span class="cl">docker image prune -a
+</span></span></code></pre></div><p>The <code>-a</code> flag removes all unused images, not just dangling ones.</p>
+
+<h3 class="relative group">Tagging and Pushing Images 
+    <div id="tagging-and-pushing-images" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#tagging-and-pushing-images" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Tag an image for a registry:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker tag my-app:1.0 username/my-app:1.0
+</span></span><span class="line"><span class="cl">docker tag my-app:1.0 myregistry.com/my-app:latest
+</span></span></code></pre></div><p>Login to a registry:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker login
+</span></span><span class="line"><span class="cl">docker login myregistry.com
+</span></span></code></pre></div><p>Push an image to a registry:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker push username/my-app:1.0
+</span></span></code></pre></div><p>This allows you to store images in Docker Hub, private registries, or cloud repositories for sharing and deployment.</p>
+
+<h2 class="relative group">Advanced Operations 
+    <div id="advanced-operations" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#advanced-operations" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">Port Mapping and Networking 
+    <div id="port-mapping-and-networking" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#port-mapping-and-networking" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Run a container and expose ports:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -d -p 8080:80 nginx
+</span></span><span class="line"><span class="cl">docker run -d -p 127.0.0.1:8080:80 nginx
+</span></span></code></pre></div><p>This maps port 8080 on your host machine to port 80 inside the container. Now, accessing <code>http://localhost:8080</code> will reach the nginx container. The second command binds only to localhost for security.</p>
+<p>View port mappings:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker port &lt;container_id&gt;
+</span></span></code></pre></div>
+<h3 class="relative group">Volume Mounting and Data Persistence 
+    <div id="volume-mounting-and-data-persistence" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#volume-mounting-and-data-persistence" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Mount a directory from your host machine into the container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -d -v /host/path:/container/path nginx
+</span></span><span class="line"><span class="cl">docker run -d -v my-volume:/data nginx
+</span></span></code></pre></div><p>This creates a persistent connection. Changes made in either location are reflected in the other. Volumes are essential for data persistence and local development workflows.</p>
+<p>Create and manage named volumes:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker volume create my-volume
+</span></span><span class="line"><span class="cl">docker volume ls
+</span></span><span class="line"><span class="cl">docker volume inspect my-volume
+</span></span><span class="line"><span class="cl">docker volume rm my-volume
+</span></span><span class="line"><span class="cl">docker volume prune
+</span></span></code></pre></div><p>Copy files between host and container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker cp myfile.txt &lt;container_id&gt;:/app/
+</span></span><span class="line"><span class="cl">docker cp &lt;container_id&gt;:/app/output.log ./
+</span></span></code></pre></div>
+<h3 class="relative group">Running Containers with Environment Variables 
+    <div id="running-containers-with-environment-variables" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#running-containers-with-environment-variables" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Pass environment variables to a container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -d -e <span class="nv">DATABASE_URL</span><span class="o">=</span>postgres://db:5432 my-app
+</span></span><span class="line"><span class="cl">docker run -d --env-file .env my-app
+</span></span></code></pre></div><p>Use the <code>-e</code> flag for single variables or <code>--env-file</code> to load multiple variables from a file. This is crucial for configuration management without modifying the container image.</p>
+
+<h3 class="relative group">Resource Limits and Constraints 
+    <div id="resource-limits-and-constraints" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#resource-limits-and-constraints" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Limit container resources:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -d --memory<span class="o">=</span><span class="s2">&#34;512m&#34;</span> --cpus<span class="o">=</span><span class="s2">&#34;1.5&#34;</span> nginx
+</span></span><span class="line"><span class="cl">docker run -d --memory<span class="o">=</span><span class="s2">&#34;1g&#34;</span> --memory-swap<span class="o">=</span><span class="s2">&#34;2g&#34;</span> nginx
+</span></span></code></pre></div><p>These flags prevent containers from consuming all system resources.</p>
+
+<h3 class="relative group">Monitoring Container Performance 
+    <div id="monitoring-container-performance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#monitoring-container-performance" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>View real-time resource usage statistics:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker stats
+</span></span><span class="line"><span class="cl">docker stats &lt;container_id&gt;
+</span></span><span class="line"><span class="cl">docker stats --no-stream
+</span></span></code></pre></div><p>The <code>docker stats</code> command shows CPU, memory, network I/O, and disk I/O for running containers. The <code>--no-stream</code> flag displays a single snapshot instead of continuous updates.</p>
+<p>Display running processes inside a container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker top &lt;container_id&gt;
+</span></span><span class="line"><span class="cl">docker top &lt;container_id&gt; aux
+</span></span></code></pre></div><p>This shows process information similar to the Linux <code>top</code> command, but specific to the container.</p>
+
+<h3 class="relative group">Inspecting Filesystem Changes 
+    <div id="inspecting-filesystem-changes" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#inspecting-filesystem-changes" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>View filesystem changes in a container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker diff &lt;container_id&gt;
+</span></span></code></pre></div><p>This command shows files and directories that have been added (A), modified (C), or deleted (D) since the container was created. It&rsquo;s invaluable for debugging and understanding what changes occurred during runtime.</p>
+
+<h3 class="relative group">Saving and Loading Images 
+    <div id="saving-and-loading-images" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#saving-and-loading-images" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Save an image to a tar archive:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker save -o myimage.tar my-app:1.0
+</span></span><span class="line"><span class="cl">docker save my-app:1.0 &gt; myimage.tar
+</span></span></code></pre></div><p>Load an image from a tar archive:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker load -i myimage.tar
+</span></span><span class="line"><span class="cl">docker load &lt; myimage.tar
+</span></span></code></pre></div><p>The <code>save</code> and <code>load</code> commands preserve the entire image with all layers, tags, and metadata.</p>
+
+<h3 class="relative group">Exporting and Importing Containers 
+    <div id="exporting-and-importing-containers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#exporting-and-importing-containers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Export a container&rsquo;s filesystem:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker <span class="nb">export</span> &lt;container_id&gt; -o mycontainer.tar
+</span></span><span class="line"><span class="cl">docker <span class="nb">export</span> &lt;container_id&gt; &gt; mycontainer.tar
+</span></span></code></pre></div><p>Import a container filesystem as an image:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker import mycontainer.tar my-new-image:1.0
+</span></span><span class="line"><span class="cl">cat mycontainer.tar <span class="p">|</span> docker import - my-new-image:1.0
+</span></span></code></pre></div><p>Unlike <code>save</code>/<code>load</code>, the <code>export</code>/<code>import</code> commands flatten the container into a single layer without history or metadata.</p>
+
+<h3 class="relative group">Creating Images from Containers 
+    <div id="creating-images-from-containers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#creating-images-from-containers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Commit changes in a container to a new image:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker commit &lt;container_id&gt; my-new-image:1.0
+</span></span><span class="line"><span class="cl">docker commit -m <span class="s2">&#34;Added nginx config&#34;</span> -a <span class="s2">&#34;John Doe&#34;</span> &lt;container_id&gt; my-new-image:1.0
+</span></span></code></pre></div><p>The <code>-m</code> flag adds a commit message, and <code>-a</code> specifies the author. This is useful for creating images from modified containers, though Dockerfiles are preferred for reproducibility.</p>
+
+<h3 class="relative group">Docker Networking 
+    <div id="docker-networking" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#docker-networking" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>List available networks:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker network ls
+</span></span></code></pre></div><p>Create a custom network:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker network create my-network
+</span></span><span class="line"><span class="cl">docker network create --driver bridge --subnet 192.168.1.0/24 my-network
+</span></span></code></pre></div><p>Connect and disconnect containers from networks:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker network connect my-network &lt;container_id&gt;
+</span></span><span class="line"><span class="cl">docker network disconnect my-network &lt;container_id&gt;
+</span></span></code></pre></div><p>Inspect network details:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker network inspect my-network
+</span></span></code></pre></div><p>Remove networks:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker network rm my-network
+</span></span><span class="line"><span class="cl">docker network prune
+</span></span></code></pre></div><p>Run containers on specific networks:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -d --network my-network --name web nginx
+</span></span><span class="line"><span class="cl">docker run -d --network my-network --name db postgres
+</span></span></code></pre></div><p>Containers on the same custom network can communicate using container names as hostnames.</p>
+
+<h3 class="relative group">Docker Compose for Multi-Container Applications 
+    <div id="docker-compose-for-multi-container-applications" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#docker-compose-for-multi-container-applications" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>For applications requiring multiple services, Docker Compose simplifies orchestration. Create a <code>docker-compose.yml</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">web</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;8080:80&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">app-network</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">db</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">db</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">postgres</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l">secret</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">app-network</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">db-data:/var/lib/postgresql/data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">app-network</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">db-data</span><span class="p">:</span><span class="w">
+</span></span></span></code></pre></div><p>Essential Docker Compose commands:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker-compose up -d
+</span></span><span class="line"><span class="cl">docker-compose down
+</span></span><span class="line"><span class="cl">docker-compose ps
+</span></span><span class="line"><span class="cl">docker-compose logs -f
+</span></span><span class="line"><span class="cl">docker-compose <span class="nb">exec</span> web bash
+</span></span><span class="line"><span class="cl">docker-compose build
+</span></span><span class="line"><span class="cl">docker-compose restart
+</span></span><span class="line"><span class="cl">docker-compose up --scale <span class="nv">web</span><span class="o">=</span><span class="m">3</span>
+</span></span></code></pre></div>
+<h2 class="relative group">System Maintenance and Cleanup 
+    <div id="system-maintenance-and-cleanup" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#system-maintenance-and-cleanup" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">Cleaning Up Resources 
+    <div id="cleaning-up-resources" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#cleaning-up-resources" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Docker can quickly consume disk space. Clean up unused resources:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker system prune
+</span></span><span class="line"><span class="cl">docker system prune -a
+</span></span><span class="line"><span class="cl">docker system prune -a --volumes
+</span></span></code></pre></div><p>The first command removes all stopped containers, unused networks, and dangling images. The <code>-a</code> flag also removes unused images, and <code>--volumes</code> removes unused volumes.</p>
+<p>View Docker disk usage:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker system df
+</span></span><span class="line"><span class="cl">docker system df -v
+</span></span></code></pre></div><p>Remove specific resource types:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker container prune
+</span></span><span class="line"><span class="cl">docker image prune
+</span></span><span class="line"><span class="cl">docker volume prune
+</span></span><span class="line"><span class="cl">docker network prune
+</span></span></code></pre></div>
+<h3 class="relative group">Pausing and Unpausing Containers 
+    <div id="pausing-and-unpausing-containers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#pausing-and-unpausing-containers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Pause all processes in a container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker pause &lt;container_id&gt;
+</span></span><span class="line"><span class="cl">docker unpause &lt;container_id&gt;
+</span></span></code></pre></div><p>This freezes the container without stopping it, useful for temporary resource management.</p>
+
+<h3 class="relative group">Renaming Containers 
+    <div id="renaming-containers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#renaming-containers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Rename a container:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker rename old-name new-name
+</span></span></code></pre></div>
+<h3 class="relative group">Viewing Events 
+    <div id="viewing-events" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#viewing-events" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Monitor Docker daemon events in real-time:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker events
+</span></span><span class="line"><span class="cl">docker events --since 1h
+</span></span><span class="line"><span class="cl">docker events --filter <span class="nv">type</span><span class="o">=</span>container
+</span></span></code></pre></div><p>This displays real-time information about container lifecycle events, network changes, and image operations.</p>
+
+<h3 class="relative group">Waiting for Container Exit 
+    <div id="waiting-for-container-exit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#waiting-for-container-exit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Block until a container stops and print its exit code:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker <span class="nb">wait</span> &lt;container_id&gt;
+</span></span></code></pre></div><p>This is useful in scripts where you need to wait for a container to complete before proceeding.</p>
+
+<h2 class="relative group">Quick Reference Table 
+    <div id="quick-reference-table" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#quick-reference-table" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Command Category</th>
+          <th>Common Commands</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Container Lifecycle</strong></td>
+          <td><code>docker run</code>, <code>docker start</code>, <code>docker stop</code>, <code>docker restart</code>, <code>docker kill</code>, <code>docker rm</code></td>
+      </tr>
+      <tr>
+          <td><strong>Container Information</strong></td>
+          <td><code>docker ps</code>, <code>docker logs</code>, <code>docker top</code>, <code>docker stats</code>, <code>docker inspect</code>, <code>docker diff</code></td>
+      </tr>
+      <tr>
+          <td><strong>Image Management</strong></td>
+          <td><code>docker build</code>, <code>docker pull</code>, <code>docker push</code>, <code>docker images</code>, <code>docker rmi</code>, <code>docker tag</code></td>
+      </tr>
+      <tr>
+          <td><strong>Data Management</strong></td>
+          <td><code>docker volume create</code>, <code>docker volume ls</code>, <code>docker cp</code>, <code>docker commit</code></td>
+      </tr>
+      <tr>
+          <td><strong>Networking</strong></td>
+          <td><code>docker network create</code>, <code>docker network connect</code>, <code>docker network ls</code>, <code>docker network inspect</code></td>
+      </tr>
+      <tr>
+          <td><strong>System Maintenance</strong></td>
+          <td><code>docker system prune</code>, <code>docker system df</code>, <code>docker events</code></td>
+      </tr>
+      <tr>
+          <td><strong>Import/Export</strong></td>
+          <td><code>docker save</code>, <code>docker load</code>, <code>docker export</code>, <code>docker import</code></td>
+      </tr>
+  </tbody>
+</table>
+
+<h2 class="relative group">Conclusion 
+    <div id="conclusion" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#conclusion" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Docker commands follow a logical progression from basic container management to advanced multi-container orchestration. Mastering these commands—from <code>docker run</code> and <code>docker ps</code> for everyday operations to <code>docker exec</code>, <code>docker stats</code>, and <code>docker network</code> for complex workflows—will significantly improve your DevOps efficiency.</p>
+<p>Start with the basic commands like running and listing containers, gradually incorporate intermediate operations such as volume mounting and port mapping into your workflow, and progressively explore advanced features like networking, resource monitoring, and Docker Compose as your needs grow. Understanding commands like <code>docker diff</code> for filesystem inspection, <code>docker top</code> for process monitoring, and <code>docker save</code>/<code>docker load</code> for image portability will give you powerful debugging and deployment capabilities.</p>
+<p>Remember, the Docker documentation and <code>docker &lt;command&gt; --help</code> are always available when you need quick reference material. With this comprehensive cheatsheet at your disposal, you&rsquo;re well-equipped to handle containerized applications efficiently in any DevOps environment. Happy containerizing!</p>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_blogs\blog4-Docker cheatsheet\index.md"
+          data-oid-likes="likes_blogs\blog4-Docker cheatsheet\index.md"></script>
+      
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/blogs/blog1-github-actions/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Getting Started with GitHub Actions</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-10-23T20:36:07-04:00">23 October 2025</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0 z-10">
+  <a
+    href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top"
+    title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2025
+          Ajith Joseph
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+      </p>
+    
+  </div>
+  
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="http://localhost:1313/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

@@ -12,6 +12,16 @@
     <lastBuildDate>Thu, 23 Oct 2025 20:36:07 -0400</lastBuildDate><atom:link href="http://localhost:1313/blogs/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Docker Cheatsheet: Essential Commands for DevOps Engineers</title>
+      <link>http://localhost:1313/blogs/blog4-docker-cheatsheet/</link>
+      <pubDate>Thu, 23 Oct 2025 20:36:07 -0400</pubDate>
+      <author>ajith.joseph.1994@gmail.com (Ajith Joseph)</author>
+      <guid>http://localhost:1313/blogs/blog4-docker-cheatsheet/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blogs/blog4-docker-cheatsheet/featured.jpg" />
+    </item>
+    
+    <item>
       <title>Getting Started with GitHub Actions</title>
       <link>http://localhost:1313/blogs/blog1-github-actions/</link>
       <pubDate>Thu, 23 Oct 2025 20:36:07 -0400</pubDate>
