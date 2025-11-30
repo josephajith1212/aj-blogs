@@ -40,8 +40,8 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.2732256cc73428dbe992fa3d83fd55ade6464805c7f60ac6e2c1e597d0d978ae5ae3416c0426067223868e800e2b3d0d9fb5acd5c977acd4e8b27f52d10952c6.css"
-    integrity="sha512-JzIlbMc0KNvpkvo9g/1VreZGSAXH9grG4sHll9DZeK5a40FsBCYGciOGjoAOKz0Nn7Ws1cl3rNTosn9S0QlSxg==">
+    href="/css/main.bundle.min.6adf4eeeae16fbc664277e6b10ccc346fffd4017033bc5aee6f1e4a64d29c7b8542f2da93280e1b8616fa24e1b737c8acf8066836dc3d7e965106760e84cbf3d.css"
+    integrity="sha512-at9O7q4W&#43;8ZkJ35rEMzDRv/9QBcDO8Wu5vHkpk0px7hULy2pMoDhuGFvok4bc3yKz4Bmg23D1&#43;llEGdg6Ey/PQ==">
 
   
   
@@ -702,9 +702,9 @@
     
 </h2>
 <p>Let&rsquo;s begin with a basic Dockerfile. This is the simplest possible approach to containerizing an application.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> python:3.9</span><span class="err">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.9</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . .<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
@@ -725,9 +725,9 @@
     
 </h2>
 <p>Docker builds images in layers. Each instruction creates a new layer. Understanding this helps you write faster, more efficient Dockerfiles.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> python:3.9</span><span class="err">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.9</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> requirements.txt .<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
@@ -750,9 +750,9 @@
     
 </h2>
 <p>Base images contain the operating system and preinstalled tools. The standard Python image is quite large. Slimmer alternatives exist.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> python:3.9-alpine</span><span class="err">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.9-alpine</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> requirements.txt .<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
@@ -775,17 +775,17 @@
     
 </h2>
 <p>Multi-stage builds allow you to use multiple base images in one Dockerfile. This is powerful for reducing final image size, especially for compiled languages.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> python:3.9-alpine AS builder</span><span class="err">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.9-alpine</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">builder</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> requirements.txt .<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> pip install --user --no-cache-dir -r requirements.txt<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> python:3.9-alpine</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.9-alpine</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>builder /root/.local /root/.local<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
@@ -808,12 +808,12 @@
     
 </h2>
 <p>Running processes as root inside containers is a security risk. A compromised application could potentially affect the host system. Create a dedicated user for your application.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> python:3.9-alpine</span><span class="err">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.9-alpine</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> addgroup -g <span class="m">1001</span> appgroup <span class="o">&amp;&amp;</span> <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    adduser -D -u <span class="m">1001</span> -G appgroup appuser<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> requirements.txt .<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
@@ -821,7 +821,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --chown<span class="o">=</span>appuser:appgroup . .<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">USER</span><span class="s"> appuser</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">USER</span><span class="w"> </span><span class="s">appuser</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;python&#34;</span><span class="p">,</span> <span class="s2">&#34;app.py&#34;</span><span class="p">]</span><span class="err">
 </span></span></span></code></pre></div><p><strong>What&rsquo;s new:</strong></p>
@@ -837,14 +837,14 @@
     
 </h2>
 <p>Scan your Dockerfile for unnecessary dependencies. Every tool installed is a potential vulnerability.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> python:3.9-alpine</span><span class="err">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.9-alpine</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> apk add --no-cache curl<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> addgroup -g <span class="m">1001</span> appgroup <span class="o">&amp;&amp;</span> <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    adduser -D -u <span class="m">1001</span> -G appgroup appuser<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> requirements.txt .<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
@@ -852,7 +852,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --chown<span class="o">=</span>appuser:appgroup . .<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">USER</span><span class="s"> appuser</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">USER</span><span class="w"> </span><span class="s">appuser</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">HEALTHCHECK</span> --interval<span class="o">=</span>30s --timeout<span class="o">=</span>3s --start-period<span class="o">=</span>5s --retries<span class="o">=</span><span class="m">3</span> <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  CMD curl -f http://localhost:8000/health <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span><span class="err">
@@ -872,12 +872,12 @@
     
 </h2>
 <p>Sensitive data like API keys should never end up in your image. Use Docker build secrets.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> python:3.9-alpine</span><span class="err">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.9-alpine</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> addgroup -g <span class="m">1001</span> appgroup <span class="o">&amp;&amp;</span> <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    adduser -D -u <span class="m">1001</span> -G appgroup appuser<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> requirements.txt .<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
@@ -886,7 +886,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --chown<span class="o">=</span>appuser:appgroup . .<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">USER</span><span class="s"> appuser</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">USER</span><span class="w"> </span><span class="s">appuser</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;python&#34;</span><span class="p">,</span> <span class="s2">&#34;app.py&#34;</span><span class="p">]</span><span class="err">
 </span></span></span></code></pre></div><p><strong>What&rsquo;s new:</strong></p>
@@ -905,16 +905,16 @@
 </h2>
 <p>Here&rsquo;s a comprehensive Dockerfile incorporating all the principles discussed.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="c"># Build stage</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> python:3.9-alpine AS builder</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.9-alpine</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">builder</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /build</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/build</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> requirements.txt .<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> pip install --user --no-cache-dir -r requirements.txt<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Runtime stage</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> python:3.9-alpine</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.9-alpine</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ARG</span> <span class="nv">VERSION</span><span class="o">=</span>unknown
 </span></span><span class="line"><span class="cl"><span class="k">ARG</span> BUILD_DATE<span class="err">
@@ -927,7 +927,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> addgroup -g <span class="m">1001</span> appgroup <span class="o">&amp;&amp;</span> <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    adduser -D -u <span class="m">1001</span> -G appgroup appuser<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>builder /root/.local /root/.local<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
@@ -936,9 +936,9 @@
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --chown<span class="o">=</span>appuser:appgroup . .<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">USER</span><span class="s"> appuser</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">USER</span><span class="w"> </span><span class="s">appuser</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 8000</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="w"> </span><span class="s">8000</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">HEALTHCHECK</span> --interval<span class="o">=</span>30s --timeout<span class="o">=</span>3s --start-period<span class="o">=</span>5s --retries<span class="o">=</span><span class="m">3</span> <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  CMD curl -f http://localhost:8000/health <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span><span class="err">
@@ -1006,8 +1006,8 @@
           type="text/javascript"
           src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_blogs\blog5-Docker image best practices\index.md"
-          data-oid-likes="likes_blogs\blog5-Docker image best practices\index.md"></script>
+          data-oid="views_blogs/blog5-Docker image best practices/index.md"
+          data-oid-likes="likes_blogs/blog5-Docker image best practices/index.md"></script>
       
     </section>
 

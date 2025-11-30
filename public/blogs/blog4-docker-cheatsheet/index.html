@@ -40,8 +40,8 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.2732256cc73428dbe992fa3d83fd55ade6464805c7f60ac6e2c1e597d0d978ae5ae3416c0426067223868e800e2b3d0d9fb5acd5c977acd4e8b27f52d10952c6.css"
-    integrity="sha512-JzIlbMc0KNvpkvo9g/1VreZGSAXH9grG4sHll9DZeK5a40FsBCYGciOGjoAOKz0Nn7Ws1cl3rNTosn9S0QlSxg==">
+    href="/css/main.bundle.min.6adf4eeeae16fbc664277e6b10ccc346fffd4017033bc5aee6f1e4a64d29c7b8542f2da93280e1b8616fa24e1b737c8acf8066836dc3d7e965106760e84cbf3d.css"
+    integrity="sha512-at9O7q4W&#43;8ZkJ35rEMzDRv/9QBcDO8Wu5vHkpk0px7hULy2pMoDhuGFvok4bc3yKz4Bmg23D1&#43;llEGdg6Ey/PQ==">
 
   
   
@@ -857,11 +857,11 @@
     
 </h3>
 <p>Create a Dockerfile in your project directory:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> ubuntu:22.04</span><span class="err">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:22.04</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> apt-get update <span class="o">&amp;&amp;</span> apt-get install -y python3<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . /app<span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 8000</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="w"> </span><span class="s">8000</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;python3&#34;</span><span class="p">,</span> <span class="s2">&#34;app.py&#34;</span><span class="p">]</span><span class="err">
 </span></span></span></code></pre></div><p>Build an image from this Dockerfile:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker build -t my-app:1.0 .
@@ -1309,8 +1309,8 @@
           type="text/javascript"
           src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_blogs\blog4-Docker cheatsheet\index.md"
-          data-oid-likes="likes_blogs\blog4-Docker cheatsheet\index.md"></script>
+          data-oid="views_blogs/blog4-Docker cheatsheet/index.md"
+          data-oid-likes="likes_blogs/blog4-Docker cheatsheet/index.md"></script>
       
     </section>
 
@@ -1326,7 +1326,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/blogs/blog5-docker-image-best-practices/">
+            <a class="flex group mr-3" href="/blogs/blog1-github-actions/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1337,7 +1337,7 @@
               >
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Docker Cheatsheet: Essential Commands for DevOps Engineers</span
+                  >Getting Started with GitHub Actions</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
@@ -1349,6 +1349,27 @@
           
         </span>
         <span>
+          
+            <a class="flex text-right group ml-3" href="/blogs/blog5-docker-image-best-practices/">
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Building Production-Ready Container Images</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-10-23T20:36:07-04:00">23 October 2025</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
           
         </span>
       </div>
