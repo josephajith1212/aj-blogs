@@ -52,6 +52,16 @@
     </item>
     
     <item>
+      <title>Nextcloud redirect issue fixed!</title>
+      <link>http://localhost:1313/blogs/blog6-nextcloud/</link>
+      <pubDate>Thu, 23 Oct 2025 20:36:07 -0400</pubDate>
+      <author>ajith.joseph.1994@gmail.com (Ajith Joseph)</author>
+      <guid>http://localhost:1313/blogs/blog6-nextcloud/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blogs/blog6-nextcloud/featured.jpg" />
+    </item>
+    
+    <item>
       <title>Understanding Kubernetes Services: Types and Use Cases</title>
       <link>http://localhost:1313/blogs/blog3-k8s-services/</link>
       <pubDate>Thu, 23 Oct 2025 20:36:07 -0400</pubDate>
