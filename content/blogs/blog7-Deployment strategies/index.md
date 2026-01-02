@@ -1,7 +1,7 @@
 +++
 date = '2025-10-23T20:36:07-04:00'
 draft = false
-title = 'Choosing the Right Release Strategy: A DevOps Perspective'
+title = 'Choosing the Right Deployment Strategy: A DevOps Perspective'
 +++
 
 Getting your code to production shouldn't feel like launching a rocket. Different strategies fit different situations, and knowing which one to reach for can mean the difference between a smooth Friday afternoon and a chaotic one. Let's break down the most common release strategies and help you pick the right fit for your team.
@@ -46,6 +46,8 @@ The catch? It takes longer than a blue green deployment, and you need to handle 
 
 ## Canary Deployment: Real World Testing
 
+![Canary deployment visualized]( canary.png)
+
 Canary deployments take the rolling approach and add validation. You deploy the new version to a small percentage of users (say 5%), monitor it intensely, and if all looks good, gradually increase the traffic.
 
 The process:
@@ -57,6 +59,8 @@ This strategy is perfect for major features or risky updates. You get early warn
 The downside is complexity. You need sophisticated monitoring, traffic routing, and the ability to roll back quickly. You also need to think about how long to stay at each percentage, what metrics trigger a rollout pause, and how to handle persistent state across versions.
 
 ## Blue Green Deployments: The Safe Swap
+
+![Blue - Green deployment visualized]( Blue-green.png)
 
 Blue green deployment maintains two complete, identical production environments. At any moment, one is active (blue) handling traffic, and one is inactive (green). When you're ready to release, you deploy to green, run all your tests there, then flip traffic to green. If something breaks, you flip back to blue.
 
