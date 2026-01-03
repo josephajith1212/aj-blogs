@@ -1,0 +1,1484 @@
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="en">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  <title>CIDR Basics and Practical Use Cases in AWS &middot; Homepage</title>
+    <meta name="title" content="CIDR Basics and Practical Use Cases in AWS &middot; Homepage">
+
+  
+  
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/blogs/blog8-cidrs/">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.d7881eb1dc8a26166b35388c3a2e25d57751a2035d9061cf31d93151615cdbc41818a1f0c9ac295861aee26efc52d2128c56cb00184dbec3989f1e5b447e9c43.css"
+    integrity="sha512-14gesdyKJhZrNTiMOi4l1XdRogNdkGHPMdkxUWFc28QYGKHwyawpWGGu4m78UtISjFbLABhNvsOYnx5bRH6cQw==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.d0e668457c1ed832201f42cada619015595cfe8fbb240c496245df0c6f8e624ea72e6af3ac973588c58e2d47e04e626ab8d2018045505b11d5e8e7fb16e46a0e.js"
+      integrity="sha512-0OZoRXwe2DIgH0LK2mGQFVlc/o&#43;7JAxJYkXfDG&#43;OYk6nLmrzrJc1iMWOLUfgTmJquNIBgEVQWxHV6Of7FuRqDg=="
+      data-copy="Copy"
+      data-copied="Copied"></script>
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.b4b722fcb5d42f34f52b30a92f3521b69f403ca9d96d0d6179eb537cb870f5d83fdf1fe836688d95d5c99fefbda4170487711006e56051fa67ea00da10521721.js" integrity="sha512-tLci/LXULzT1KzCpLzUhtp9APKnZbQ1heetTfLhw9dg/3x/oNmiNldXJn&#43;&#43;9pBcEh3EQBuVgUfpn6gDaEFIXIQ=="></script>
+  
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  <meta property="og:url" content="http://localhost:1313/blogs/blog8-cidrs/">
+  <meta property="og:site_name" content="Homepage">
+  <meta property="og:title" content="CIDR Basics and Practical Use Cases in AWS">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blogs">
+    <meta property="article:published_time" content="2025-12-19T17:03:00-05:00">
+    <meta property="article:modified_time" content="2025-12-19T17:03:00-05:00">
+    <meta property="og:image" content="http://localhost:1313/blogs/blog8-cidrs/featured.png">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/blogs/blog8-cidrs/featured.png">
+  <meta name="twitter:title" content="CIDR Basics and Practical Use Cases in AWS">
+<meta name="twitter:image" content="http://localhost:1313/blogs/blog8-cidrs/featured.png">
+    <meta property="og:image" content="http://localhost:1313/blogs/blog8-cidrs/featured.png">
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "",
+    "name": "CIDR Basics and Practical Use Cases in AWS",
+    "headline": "CIDR Basics and Practical Use Cases in AWS",
+    
+    
+    "inLanguage": "en",
+    "url" : "http:\/\/localhost:1313\/blogs\/blog8-cidrs\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Ajith Joseph"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-12-19T17:03:00-05:00",
+    "datePublished": "2025-12-19T17:03:00-05:00",
+    
+    "dateModified": "2025-12-19T17:03:00-05:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1700"
+  }]
+  </script>
+
+
+
+  
+  
+    <meta name="author" content="Ajith Joseph">
+  
+  
+    
+      
+        
+      
+    
+      
+        
+          <link href="https://github.com/username" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://linkedin.com/in/username" rel="me">
+        
+      
+    
+  
+
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.03cb160e3cfdb2667a2e2c80d283bebcf63ff8bbc4b629c9ab2babf6fae1d0c07ad470edae783efa4fabda2ac01c58d60e63b98b3c336be8208460f08f4354f5.js" integrity="sha512-A8sWDjz9smZ6LiyA0oO&#43;vPY/&#43;LvEtinJqyur9vrh0MB61HDtrng&#43;&#43;k&#43;r2irAHFjWDmO5izwza&#43;gghGDwj0NU9Q=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>
+        Skip to main content
+      </a>
+    </div>
+    
+    
+      <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px] z-100">
+  <div
+    id="menu-blur"
+    class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom bg-neutral dark:bg-neutral-800"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3 pt-[2px] pr-0 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
+          Homepage
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/blogs/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="">
+    Blogs
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/about/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="">
+    About
+  </p>
+</a>
+
+
+
+      
+    
+
+    
+
+    
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="Search (/)">
+        <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      </button>
+    
+
+    
+      <div class=" flex items-center">
+        <button
+          id="appearance-switcher"
+          aria-label="Dark mode switcher"
+          type="button"
+          class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+          <div class="flex items-center justify-center dark:hidden">
+            <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+          </div>
+          <div class="items-center justify-center hidden dark:flex">
+            <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+          </div>
+        </button>
+      </div>
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="Search (/)">
+        <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      </button>
+    
+
+    
+      <button
+        id="appearance-switcher-mobile"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/blogs/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="">
+      Blogs
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/about/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="">
+      About
+    </p>
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+  </div>
+</div>
+
+
+<script
+  type="text/javascript"
+  src="/js/background-blur.min.0ad33cb9c066f652728b2cc09c9ceaf32645544f48e8b6b38f120d86f433ed997da275a49e6151fe0176430c45376812708d84727f3f969101fb44a4345b3f34.js"
+  integrity="sha512-CtM8ucBm9lJyiyzAnJzq8yZFVE9I6LazjxINhvQz7Zl9onWknmFR/gF2QwxFN2gScI2Ecn8/lpEB&#43;0SkNFs/NA=="
+  data-target-id="menu-blur"></script>
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  <article>
+    
+    
+      
+      
+      
+      
+        
+
+
+    <div id="hero" class="h-[150px] md:h-[200px]"></div>
+  
+  <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom">
+    
+    
+      
+    
+    <img
+      id="background-image"
+      src="/blogs/blog8-cidrs/featured_hu_2993bb2a02f4a8e1.png"
+      alt="Background Image"
+      class="absolute inset-0 w-full h-full object-cover">
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal"></div>
+    <div
+      class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal"></div>
+  </div>
+
+  
+    <div
+      id="background-blur"
+      class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/background-blur.min.0ad33cb9c066f652728b2cc09c9ceaf32645544f48e8b6b38f120d86f433ed997da275a49e6151fe0176430c45376812708d84727f3f969101fb44a4345b3f34.js"
+      integrity="sha512-CtM8ucBm9lJyiyzAnJzq8yZFVE9I6LazjxINhvQz7Zl9onWknmFR/gF2QwxFN2gScI2Ecn8/lpEB&#43;0SkNFs/NA=="
+      data-target-id="background-blur"
+      data-image-id="background-image"
+      data-image-url="/blogs/blog8-cidrs/featured.png"></script>
+  
+      
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        CIDR Basics and Practical Use Cases in AWS
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-12-19T17:03:00-05:00">19 December 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1700 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">8 mins</span><span class="px-2 text-primary-500">&middot;</span>
+
+
+
+<script
+  type="text/javascript"
+  src="/js/zen-mode.min.9814dee9614d32aeb56239d118edfe20acd6231424f9b19c2dd48835038414130a5e946c0d1c9087d60e60e31840c9babfd217e3d4b95643dc8d651a71ccdf4a.js"
+  integrity="sha512-mBTe6WFNMq61YjnRGO3&#43;IKzWIxQk&#43;bGcLdSINQOEFBMKXpRsDRyQh9YOYOMYQMm6v9IX49S5VkPcjWUacczfSg=="></script>
+
+<span class="mb-[2px]">
+  <span
+    id="zen-mode-button"
+    class="text-lg hover:text-primary-500"
+    title="Enable zen mode"
+    data-title-i18n-disable="Enable zen mode"
+    data-title-i18n-enable="Disable zen mode">
+    <span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
+    <path fill="currentColor" d="M 12.980469 4 C 9.1204688 4 5.9804688 7.14 5.9804688 11 L 6 26 L 9.9804688 26 L 9.9804688 11 C 9.9804688 9.35 11.320469 8 12.980469 8 L 40.019531 8 C 41.679531 8 43.019531 9.35 43.019531 11 L 43.019531 39 C 43.019531 40.65 41.679531 42 40.019531 42 L 29 42 C 29 43.54 28.420938 44.94 27.460938 46 L 40.019531 46 C 43.879531 46 47.019531 42.86 47.019531 39 L 47.019531 11 C 47.019531 7.14 43.879531 4 40.019531 4 L 12.980469 4 z M 7 28 C 4.794 28 3 29.794 3 32 L 3 42 C 3 44.206 4.794 46 7 46 L 23 46 C 25.206 46 27 44.206 27 42 L 27 32 C 27 29.794 25.206 28 23 28 L 7 28 z M 7 32 L 23 32 L 23.001953 42 L 7 42 L 7 32 z"/>
+</svg></span></span>
+  </span>
+</span>
+
+    
+
+    
+    
+  </div>
+
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  
+
+  
+  
+
+  
+  
+
+
+
+      </div>
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    
+    
+<div class="flex author">
+  
+    
+    
+      
+    
+    
+      
+        
+      
+      <img
+        class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4"
+        width="96"
+        height="96"
+        alt="Ajith Joseph"
+        src="/89587887_5906023272367133617_hu_4c55e75d5ae02232.png">
+    
+  
+  <div class="place-self-center">
+    
+      <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+        Author
+      </div>
+      <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+        Ajith Joseph
+      </div>
+    
+    
+      <div class="text-sm text-neutral-700 dark:text-neutral-400">A little bit about you</div>
+    
+    <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="mailto:josephajith1212@gmail.com"
+          target="_blank"
+          aria-label="Email"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+</span></span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/username"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://linkedin.com/in/username"
+          target="_blank"
+          aria-label="Linkedin"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+</span></span></a
+        >
+      
+    
+  </div>
+
+</div>
+  </div>
+</div>
+
+  
+
+  
+
+  
+    <div class="mb-5"></div>
+  
+
+      
+    </header>
+
+    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+        <div class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+          <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]">
+            
+              <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-even-is-cidr">What Even Is CIDR?</a>
+      <ul>
+        <li><a href="#the-basics-how-cidr-works">The Basics: How CIDR Works</a></li>
+        <li><a href="#how-to-calculate-cidr-ranges">How to Calculate CIDR Ranges</a></li>
+        <li><a href="#common-cidr-notations-at-a-glance">Common CIDR Notations at a Glance</a></li>
+        <li><a href="#why-does-cidr-matter">Why Does CIDR Matter?</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-i-use-cidr-in-aws">How I Use CIDR in AWS</a>
+      <ul>
+        <li><a href="#creating-a-vpc-and-subnets">Creating a VPC and Subnets</a></li>
+        <li><a href="#setting-up-security-groups">Setting Up Security Groups</a></li>
+        <li><a href="#managing-kubernetes-pod-networks-with-cidr">Managing Kubernetes Pod Networks with CIDR</a></li>
+        <li><a href="#managing-database-replication-with-cidr-rules">Managing Database Replication with CIDR Rules</a></li>
+      </ul>
+    </li>
+    <li><a href="#cidr-quick-reference-guide">CIDR Quick Reference Guide</a>
+      <ul>
+        <li><a href="#cidr-notations-and-host-count">CIDR Notations and Host Count</a></li>
+        <li><a href="#quick-calculation-cheat">Quick Calculation Cheat</a></li>
+        <li><a href="#rfc-1918-private-ip-ranges">RFC 1918 Private IP Ranges</a></li>
+        <li><a href="#aws-default-recommendations">AWS Default Recommendations</a></li>
+        <li><a href="#common-cidr-mistakes-to-avoid">Common CIDR Mistakes to Avoid</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-even-is-cidr">What Even Is CIDR?</a>
+      <ul>
+        <li><a href="#the-basics-how-cidr-works">The Basics: How CIDR Works</a></li>
+        <li><a href="#how-to-calculate-cidr-ranges">How to Calculate CIDR Ranges</a></li>
+        <li><a href="#common-cidr-notations-at-a-glance">Common CIDR Notations at a Glance</a></li>
+        <li><a href="#why-does-cidr-matter">Why Does CIDR Matter?</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-i-use-cidr-in-aws">How I Use CIDR in AWS</a>
+      <ul>
+        <li><a href="#creating-a-vpc-and-subnets">Creating a VPC and Subnets</a></li>
+        <li><a href="#setting-up-security-groups">Setting Up Security Groups</a></li>
+        <li><a href="#managing-kubernetes-pod-networks-with-cidr">Managing Kubernetes Pod Networks with CIDR</a></li>
+        <li><a href="#managing-database-replication-with-cidr-rules">Managing Database Replication with CIDR Rules</a></li>
+      </ul>
+    </li>
+    <li><a href="#cidr-quick-reference-guide">CIDR Quick Reference Guide</a>
+      <ul>
+        <li><a href="#cidr-notations-and-host-count">CIDR Notations and Host Count</a></li>
+        <li><a href="#quick-calculation-cheat">Quick Calculation Cheat</a></li>
+        <li><a href="#rfc-1918-private-ip-ranges">RFC 1918 Private IP Ranges</a></li>
+        <li><a href="#aws-default-recommendations">AWS Default Recommendations</a></li>
+        <li><a href="#common-cidr-mistakes-to-avoid">Common CIDR Mistakes to Avoid</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+
+            
+            
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+        <div class="article-content max-w-prose mb-20">
+          <p>Hello world! If you&rsquo;ve been working with AWS, you&rsquo;ve probably bumped into CIDR notation at some point. Whether you&rsquo;re setting up VPCs, security groups, or route tables, CIDR blocks are everywhere. I&rsquo;ll be honest, when I first started my DevOps journey, CIDR notation felt like absolute magic. But once it clicked for me, it became one of my go-to tools for designing robust cloud infrastructure.</p>
+<p>Let me walk you through what CIDR actually is, how to calculate it, and show you some real world situations where I&rsquo;ve used it in my AWS environments.</p>
+<hr>
+
+<h2 class="relative group">What Even Is CIDR? 
+    <div id="what-even-is-cidr" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#what-even-is-cidr" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>CIDR stands for Classless Inter-Domain Routing. I know, fancy name. But here&rsquo;s the thing: it&rsquo;s just a shorthand way to describe a range of IP addresses. Instead of saying &ldquo;all IP addresses from 10.0.0.0 to 10.0.0.255,&rdquo; you can just write <code>10.0.0.0/24</code> and boom, you&rsquo;ve described the same thing in a much cleaner way.</p>
+
+<h3 class="relative group">The Basics: How CIDR Works 
+    <div id="the-basics-how-cidr-works" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#the-basics-how-cidr-works" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>An IPv4 address is made up of 32 bits total. These 32 bits are split into two parts: the network part and the host part. The CIDR notation (the <code>/xx</code> number) tells you exactly where that split happens.</p>
+<p>For example, in <code>10.0.0.0/24</code>, the <code>/24</code> means:</p>
+<ul>
+<li>First 24 bits = the network part (this stays the same for all addresses in the range)</li>
+<li>Last 8 bits = the host part (this can vary)</li>
+</ul>
+<p>The network part identifies which subnet you&rsquo;re in. The host part identifies individual devices within that subnet.</p>
+<p>Let me break down <code>10.0.0.0/24</code> in binary to make it clearer:</p>
+<pre tabindex="0"><code>10.0.0.0 in binary = 00001010.00000000.00000000.00000000
+/24 means first 24 bits are fixed
+
+Network part (first 24 bits):  00001010.00000000.00000000 (this is always the same)
+Host part (last 8 bits):       .00000000 to .11111111 (these can vary)
+
+So the range is: 10.0.0.0 to 10.0.0.255
+</code></pre><p>Simple, right? The <code>/24</code> just tells you where the dividing line is between the network and host portions.</p>
+
+<h3 class="relative group">How to Calculate CIDR Ranges 
+    <div id="how-to-calculate-cidr-ranges" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#how-to-calculate-cidr-ranges" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Here&rsquo;s the formula I use constantly. It&rsquo;s super simple:</p>
+<p><strong>Host bits = 32 minus CIDR number</strong></p>
+<p><strong>Number of addresses = 2^(host bits)</strong></p>
+<p>Let me walk through a few examples so you see how it works.</p>
+<p>For <code>/24</code>:</p>
+<ul>
+<li>Host bits = 32 - 24 = 8 bits</li>
+<li>Number of addresses = 2^8 = 256 addresses</li>
+<li>Usable IPs = 256 minus 2 (network and broadcast) = 254 usable IPs</li>
+</ul>
+<p>For <code>/16</code>:</p>
+<ul>
+<li>Host bits = 32 - 16 = 16 bits</li>
+<li>Number of addresses = 2^16 = 65,536 addresses</li>
+<li>Usable IPs = 65,536 minus 2 = 65,534 usable IPs</li>
+</ul>
+<p>For <code>/30</code>:</p>
+<ul>
+<li>Host bits = 32 - 30 = 2 bits</li>
+<li>Number of addresses = 2^2 = 4 addresses</li>
+<li>Usable IPs = 4 minus 2 = 2 usable IPs</li>
+</ul>
+<p>For <code>/32</code>:</p>
+<ul>
+<li>Host bits = 32 - 32 = 0 bits</li>
+<li>Number of addresses = 2^0 = 1 address (a single host)</li>
+<li>Usable IPs = 1 (it&rsquo;s just one IP, no network or broadcast address)</li>
+</ul>
+
+<h3 class="relative group">Common CIDR Notations at a Glance 
+    <div id="common-cidr-notations-at-a-glance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#common-cidr-notations-at-a-glance" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Here&rsquo;s a quick reference of the ones you&rsquo;ll see most often:</p>
+<ul>
+<li><code>/32</code> = 1 IP address (single host, super specific)</li>
+<li><code>/30</code> = 4 IP addresses (2 usable, great for point to point links)</li>
+<li><code>/24</code> = 256 IP addresses (254 usable, perfect for small to medium subnets)</li>
+<li><code>/16</code> = 65,536 IP addresses (65,534 usable, great for large networks)</li>
+<li><code>/8</code> = 16,777,216 IP addresses (huge networks, rarely used in AWS)</li>
+</ul>
+
+<h3 class="relative group">Why Does CIDR Matter? 
+    <div id="why-does-cidr-matter" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#why-does-cidr-matter" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Once you understand CIDR, you can design networks that are exactly the right size. Too small, and you run out of IPs. Too big, and you&rsquo;re wasting address space. CIDR lets you be precise about it.</p>
+<p>In AWS, everything uses CIDR. Your VPC needs a CIDR block. Each subnet needs a CIDR block. Security groups use CIDR to define what traffic is allowed. Route tables use CIDR to decide where packets should go. So getting comfortable with this notation early on saves you tons of confusion later.</p>
+<hr>
+
+<h2 class="relative group">How I Use CIDR in AWS 
+    <div id="how-i-use-cidr-in-aws" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#how-i-use-cidr-in-aws" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Let me give you a real world example from one of my home lab projects. I was setting up a VPC in AWS to run a few microservices in Kubernetes, and I needed to plan my network carefully.</p>
+
+<h3 class="relative group">Creating a VPC and Subnets 
+    <div id="creating-a-vpc-and-subnets" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#creating-a-vpc-and-subnets" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>When I created my VPC, I decided to use <code>10.0.0.0/16</code> as my overall network block. This gave me plenty of room to work with. Then I carved that up into smaller subnets:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">VPC</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">CIDR</span><span class="p">:</span><span class="w"> </span><span class="m">10.0.0.0</span><span class="l">/16</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Total IPs</span><span class="p">:</span><span class="w"> </span><span class="m">65</span><span class="p">,</span><span class="m">536</span><span class="w"> </span><span class="l">(254 usable per subnet once divided)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Subnets</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">PublicSubnet1</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">CIDR</span><span class="p">:</span><span class="w"> </span><span class="m">10.0.1.0</span><span class="l">/24</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">IPs</span><span class="p">:</span><span class="w"> </span><span class="m">256</span><span class="w"> </span><span class="l">(254 usable)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">AZ</span><span class="p">:</span><span class="w"> </span><span class="l">us-east-1a</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">PublicSubnet2</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">CIDR</span><span class="p">:</span><span class="w"> </span><span class="m">10.0.2.0</span><span class="l">/24</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">IPs</span><span class="p">:</span><span class="w"> </span><span class="m">256</span><span class="w"> </span><span class="l">(254 usable)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">AZ</span><span class="p">:</span><span class="w"> </span><span class="l">us-east-1b</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">PrivateSubnet1</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">CIDR</span><span class="p">:</span><span class="w"> </span><span class="m">10.0.10.0</span><span class="l">/24</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">IPs</span><span class="p">:</span><span class="w"> </span><span class="m">256</span><span class="w"> </span><span class="l">(254 usable)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">AZ</span><span class="p">:</span><span class="w"> </span><span class="l">us-east-1a</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">PrivateSubnet2</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">CIDR</span><span class="p">:</span><span class="w"> </span><span class="m">10.0.11.0</span><span class="l">/24</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">IPs</span><span class="p">:</span><span class="w"> </span><span class="m">256</span><span class="w"> </span><span class="l">(254 usable)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">AZ</span><span class="p">:</span><span class="w"> </span><span class="l">us-east-1b</span><span class="w">
+</span></span></span></code></pre></div><p>Notice how I spaced things out? I used <code>/24</code> for each subnet, which gives me 256 IPs per subnet. For my use case, that&rsquo;s more than enough. I could spin up an EKS cluster, a few RDS instances, and still have room to grow.</p>
+<p>The beauty of this approach is that I&rsquo;m not wasting the address space. By choosing appropriate CIDR blocks, I can scale my infrastructure without having to redesign my entire VPC later.</p>
+
+<h3 class="relative group">Setting Up Security Groups 
+    <div id="setting-up-security-groups" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#setting-up-security-groups" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>This is where CIDR really shines for me. Security groups in AWS use CIDR notation to control who can talk to what. Let me walk you through a scenario.</p>
+<p>I had an EKS cluster that needed to talk to an RDS database. Instead of just opening port 5432 to the entire internet (please don&rsquo;t do that!), I used the CIDR block of my private subnets where the EKS nodes lived.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">RDSSecurityGroup</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">InboundRules</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Protocol</span><span class="p">:</span><span class="w"> </span><span class="l">TCP</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">Port</span><span class="p">:</span><span class="w"> </span><span class="m">5432</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">Source</span><span class="p">:</span><span class="w"> </span><span class="m">10.0.10.0</span><span class="l">/24</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">Description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Allow from EKS nodes in AZ-1a&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Protocol</span><span class="p">:</span><span class="w"> </span><span class="l">TCP</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">Port</span><span class="p">:</span><span class="w"> </span><span class="m">5432</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">Source</span><span class="p">:</span><span class="w"> </span><span class="m">10.0.11.0</span><span class="l">/24</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">Description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Allow from EKS nodes in AZ-1b&#34;</span><span class="w">
+</span></span></span></code></pre></div><p>This way, only my Kubernetes nodes can reach the database. It&rsquo;s secure, precise, and scales with my infrastructure.</p>
+
+<h3 class="relative group">Managing Kubernetes Pod Networks with CIDR 
+    <div id="managing-kubernetes-pod-networks-with-cidr" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#managing-kubernetes-pod-networks-with-cidr" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>When I deployed EKS on AWS, I needed to think carefully about CIDR blocks for the pods themselves. My VPC uses <code>10.0.0.0/16</code>, but the Kubernetes pods need their own IP space. I configured my cluster with a pod CIDR of <code>100.64.0.0/16</code>, which is completely separate from my VPC network.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">EKSCluster</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">VPC_CIDR</span><span class="p">:</span><span class="w"> </span><span class="m">10.0.0.0</span><span class="l">/16</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Pod_CIDR</span><span class="p">:</span><span class="w"> </span><span class="m">100.64.0.0</span><span class="l">/16</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Nodes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Node1_VPC_IP</span><span class="p">:</span><span class="w"> </span><span class="m">10.0.1.50</span><span class="w"> </span><span class="l">(from subnet 10.0.1.0/24)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Node2_VPC_IP</span><span class="p">:</span><span class="w"> </span><span class="m">10.0.2.75</span><span class="w"> </span><span class="l">(from subnet 10.0.2.0/24)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Pods</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Pod1_IP</span><span class="p">:</span><span class="w"> </span><span class="m">100.64.0.10</span><span class="w"> </span><span class="l">(from pod CIDR)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Pod2_IP</span><span class="p">:</span><span class="w"> </span><span class="m">100.64.0.11</span><span class="w"> </span><span class="l">(from pod CIDR)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Pod3_IP</span><span class="p">:</span><span class="w"> </span><span class="m">100.64.1.5</span><span class="w"> </span><span class="l">(from pod CIDR)</span><span class="w">
+</span></span></span></code></pre></div><p>This separation is clever. My worker nodes live in the VPC subnet (10.0.x.x), but the pods they run get IPs from a completely different range (100.64.x.x). This prevents IP conflicts and gives me tons of flexibility. I can have hundreds of pods running on just a few nodes without worrying about running out of IPs in my subnets.</p>
+
+<h3 class="relative group">Managing Database Replication with CIDR Rules 
+    <div id="managing-database-replication-with-cidr-rules" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#managing-database-replication-with-cidr-rules" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Here&rsquo;s a practical example I ran into recently. I have an RDS instance for production in one AWS region and a read replica in another region. I needed to allow replication traffic between them using specific CIDR blocks.</p>
+<p>My production database is in us-east-1 with a security group that has a CIDR block of <code>10.0.0.0/16</code>. My replica is in us-west-2 with a different VPC using <code>10.1.0.0/16</code>. I set up an inter-region VPC peering connection and configured the security groups like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">ProductionRDSSecurityGroup</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">InboundRules</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Protocol</span><span class="p">:</span><span class="w"> </span><span class="l">TCP</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">Port</span><span class="p">:</span><span class="w"> </span><span class="m">3306</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">Source</span><span class="p">:</span><span class="w"> </span><span class="m">10.1.0.0</span><span class="l">/16</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">Description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Allow MySQL replication from us-west-2 replica VPC&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">ReplicaRDSSecurityGroup</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">InboundRules</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">Protocol</span><span class="p">:</span><span class="w"> </span><span class="l">TCP</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">Port</span><span class="p">:</span><span class="w"> </span><span class="m">3306</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">Source</span><span class="p">:</span><span class="w"> </span><span class="m">10.0.0.0</span><span class="l">/16</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">Description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Allow read queries from production VPC&#34;</span><span class="w">
+</span></span></span></code></pre></div><p>By using the VPC CIDR blocks instead of individual IP addresses, the security groups automatically work for any database instance I launch in those VPCs. If I add new instances later, the rules still apply. It&rsquo;s much more scalable than hardcoding individual IPs.</p>
+<hr>
+
+<h2 class="relative group">CIDR Quick Reference Guide 
+    <div id="cidr-quick-reference-guide" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#cidr-quick-reference-guide" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Here&rsquo;s a handy cheatsheet I keep bookmarked for quick lookups. You&rsquo;ll end up memorizing these pretty quickly, but when you need a fast reference, this is it.</p>
+
+<h3 class="relative group">CIDR Notations and Host Count 
+    <div id="cidr-notations-and-host-count" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#cidr-notations-and-host-count" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>CIDR Notation</th>
+          <th>Total Addresses</th>
+          <th>Usable IPs</th>
+          <th>Common Use Case</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>/32</code></td>
+          <td>1</td>
+          <td>1</td>
+          <td>Single host, specific IP</td>
+      </tr>
+      <tr>
+          <td><code>/31</code></td>
+          <td>2</td>
+          <td>2</td>
+          <td>Point to point links (RFC 3021)</td>
+      </tr>
+      <tr>
+          <td><code>/30</code></td>
+          <td>4</td>
+          <td>2</td>
+          <td>VPN tunnels, router links</td>
+      </tr>
+      <tr>
+          <td><code>/29</code></td>
+          <td>8</td>
+          <td>6</td>
+          <td>Small lab environment</td>
+      </tr>
+      <tr>
+          <td><code>/28</code></td>
+          <td>16</td>
+          <td>14</td>
+          <td>Tiny subnet</td>
+      </tr>
+      <tr>
+          <td><code>/27</code></td>
+          <td>32</td>
+          <td>30</td>
+          <td>Small subnet</td>
+      </tr>
+      <tr>
+          <td><code>/26</code></td>
+          <td>64</td>
+          <td>62</td>
+          <td>Medium subnet</td>
+      </tr>
+      <tr>
+          <td><code>/25</code></td>
+          <td>128</td>
+          <td>126</td>
+          <td>Medium subnet</td>
+      </tr>
+      <tr>
+          <td><code>/24</code></td>
+          <td>256</td>
+          <td>254</td>
+          <td>Standard subnet (AWS default for many services)</td>
+      </tr>
+      <tr>
+          <td><code>/23</code></td>
+          <td>512</td>
+          <td>510</td>
+          <td>Larger subnet</td>
+      </tr>
+      <tr>
+          <td><code>/22</code></td>
+          <td>1,024</td>
+          <td>1,022</td>
+          <td>Large subnet</td>
+      </tr>
+      <tr>
+          <td><code>/21</code></td>
+          <td>2,048</td>
+          <td>2,046</td>
+          <td>Very large subnet</td>
+      </tr>
+      <tr>
+          <td><code>/20</code></td>
+          <td>4,096</td>
+          <td>4,094</td>
+          <td>Very large subnet</td>
+      </tr>
+      <tr>
+          <td><code>/16</code></td>
+          <td>65,536</td>
+          <td>65,534</td>
+          <td>Typical VPC size</td>
+      </tr>
+      <tr>
+          <td><code>/15</code></td>
+          <td>131,072</td>
+          <td>131,070</td>
+          <td>Large VPC</td>
+      </tr>
+      <tr>
+          <td><code>/8</code></td>
+          <td>16,777,216</td>
+          <td>16,777,214</td>
+          <td>Entire RFC 1918 block</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">Quick Calculation Cheat 
+    <div id="quick-calculation-cheat" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#quick-calculation-cheat" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>If you need to calculate on the fly, remember this formula:</p>
+<p><strong>Number of Addresses = 2^(32 - CIDR)</strong></p>
+<p><strong>Usable IPs = 2^(32 - CIDR) - 2</strong> (subtract 2 for network and broadcast addresses)</p>
+<p>Examples:</p>
+<ul>
+<li><code>/24</code>: 2^(32-24) = 2^8 = 256 addresses (254 usable)</li>
+<li><code>/16</code>: 2^(32-16) = 2^16 = 65,536 addresses (65,534 usable)</li>
+<li><code>/22</code>: 2^(32-22) = 2^10 = 1,024 addresses (1,022 usable)</li>
+</ul>
+
+<h3 class="relative group">RFC 1918 Private IP Ranges 
+    <div id="rfc-1918-private-ip-ranges" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#rfc-1918-private-ip-ranges" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Always use these for your internal networks. They&rsquo;re reserved for private use and won&rsquo;t conflict with the public internet.</p>
+<ul>
+<li><code>10.0.0.0/8</code> - Largest private range, 16.7 million addresses</li>
+<li><code>172.16.0.0/12</code> - Medium private range, 1 million addresses</li>
+<li><code>192.168.0.0/16</code> - Smallest private range, 65,536 addresses</li>
+</ul>
+
+<h3 class="relative group">AWS Default Recommendations 
+    <div id="aws-default-recommendations" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#aws-default-recommendations" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>When I&rsquo;m setting up a new VPC, I typically follow this pattern:</p>
+<ul>
+<li>VPC CIDR: <code>10.0.0.0/16</code> (gives me 65,536 IPs to work with)</li>
+<li>Public Subnet 1: <code>10.0.1.0/24</code> (254 usable IPs)</li>
+<li>Public Subnet 2: <code>10.0.2.0/24</code> (254 usable IPs)</li>
+<li>Private Subnet 1: <code>10.0.10.0/24</code> (254 usable IPs)</li>
+<li>Private Subnet 2: <code>10.0.11.0/24</code> (254 usable IPs)</li>
+<li>EKS Pod CIDR: <code>100.64.0.0/16</code> (separate from VPC, plenty of room for pods)</li>
+</ul>
+<p>This layout leaves me with plenty of unused CIDR blocks for future growth without having to redesign my network.</p>
+
+<h3 class="relative group">Common CIDR Mistakes to Avoid 
+    <div id="common-cidr-mistakes-to-avoid" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#common-cidr-mistakes-to-avoid" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Do not overlap CIDR blocks within the same VPC</li>
+<li>Do not use overlapping ranges when peering multiple VPCs</li>
+<li>Always account for the two reserved addresses (network and broadcast)</li>
+<li>Do not allocate all your address space at once, leave room for growth</li>
+<li>Do not peer VPCs with conflicting CIDR ranges</li>
+</ul>
+<hr>
+<p>Hope you found this helpful. Happy hosting!</p>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+  
+  <section class="flex flex-row flex-wrap justify-center pt-4 text-xl">
+    
+      
+        <a
+          target="_blank"
+          class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/blogs/blog8-cidrs/&amp;title=CIDR%20Basics%20and%20Practical%20Use%20Cases%20in%20AWS"
+          title="Share on LinkedIn"
+          aria-label="Share on LinkedIn">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+</span>
+        </a>
+      
+    
+      
+        <a
+          target="_blank"
+          class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://reddit.com/submit/?url=http://localhost:1313/blogs/blog8-cidrs/&amp;resubmit=true&amp;title=CIDR%20Basics%20and%20Practical%20Use%20Cases%20in%20AWS"
+          title="Submit to Reddit"
+          aria-label="Submit to Reddit">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M201.5 305.5c-13.8 0-24.9-11.1-24.9-24.6 0-13.8 11.1-24.9 24.9-24.9 13.6 0 24.6 11.1 24.6 24.9 0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4 0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7 0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9 0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5 0 52.6 59.2 95.2 132 95.2 73.1 0 132.3-42.6 132.3-95.2 0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6 0-2.2-2.2-6.1-2.2-8.3 0-2.5 2.5-2.5 6.4 0 8.6 22.8 22.8 87.3 22.8 110.2 0 2.5-2.2 2.5-6.1 0-8.6-2.2-2.2-6.1-2.2-8.3 0zm7.7-75c-13.6 0-24.6 11.1-24.6 24.9 0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.1 24.9-24.6 0-13.8-11-24.9-24.9-24.9z"/></svg>
+</span>
+        </a>
+      
+    
+      
+        <a
+          target="_blank"
+          class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="mailto:?body=http://localhost:1313/blogs/blog8-cidrs/&amp;subject=CIDR%20Basics%20and%20Practical%20Use%20Cases%20in%20AWS"
+          title="Send via email"
+          aria-label="Send via email">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+</span>
+        </a>
+      
+    
+      
+        <a
+          target="_blank"
+          class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://t.me/share/url?url=http://localhost:1313/blogs/blog8-cidrs/&amp;resubmit=true&amp;title=CIDR%20Basics%20and%20Practical%20Use%20Cases%20in%20AWS"
+          title="Share via Telegram"
+          aria-label="Share via Telegram">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M248,8C111.033,8,0,119.033,0,256S111.033,504,248,504,496,392.967,496,256,384.967,8,248,8ZM362.952,176.66c-3.732,39.215-19.881,134.378-28.1,178.3-3.476,18.584-10.322,24.816-16.948,25.425-14.4,1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25,5.342-39.5,3.652-3.793,67.107-61.51,68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608,69.142-14.845,10.194-26.894,9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7,18.45-13.7,108.446-47.248,144.628-62.3c68.872-28.647,83.183-33.623,92.511-33.789,2.052-.034,6.639.474,9.61,2.885a10.452,10.452,0,0,1,3.53,6.716A43.765,43.765,0,0,1,362.952,176.66Z"/></svg>
+</span>
+        </a>
+      
+    
+  </section>
+
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_blogs/blog8-CIDRs/index.md"
+          data-oid-likes="likes_blogs/blog8-CIDRs/index.md"></script>
+      
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/blogs/blog5-docker-image-best-practices/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Building Production-Ready Container Images</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-10-23T20:36:07-04:00">23 October 2025</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/blogs/blog9-aws-route53/">
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >AWS Route 53 Quick Reference Guide</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-12-19T17:03:00-05:00">19 December 2025</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0 z-10">
+  <a
+    href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top"
+    title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2026
+          Ajith Joseph
+      </p>
+    
+
+    
+    
+  </div>
+  
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="http://localhost:1313/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

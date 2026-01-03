@@ -1,8 +1,10 @@
-+++
-date = '2025-12-19T17:03:00-05:00'
-draft = false
-title = 'AWS Route 53 Quick Reference Guide'
-+++
+---
+date: 2025-12-19T17:03:00-05:00
+draft: false
+title: "AWS Route 53 Quick Reference Guide"
+summary: "We deep dive into AWS Route 53: hosted zones, DNS records/Aliases, routing policies, health checks, and more."
+---
+
 
 
 Alright, let's break down Route 53 in a way that makes sense for us DevOps folks. Think of it as your DNS traffic cop for AWS.
