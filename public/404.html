@@ -123,13 +123,13 @@
     
       
         
-          <link href="https://github.com/username" rel="me">
+          <link href="https://github.com/josephajith1212" rel="me">
         
       
     
       
         
-          <link href="https://linkedin.com/in/username" rel="me">
+          <link href="https://www.linkedin.com/in/josephajith1212/" rel="me">
         
       
     
@@ -399,6 +399,16 @@
 
 
 
+
+  <script>
+    (function () {
+      var $mainmenu = $(".main-menu");
+      var path = window.location.pathname;
+      $mainmenu.find('a[href="' + path + '"]').each(function (i, e) {
+        $(e).children("p").addClass("active");
+      });
+    })();
+  </script>
 
 
   </div>

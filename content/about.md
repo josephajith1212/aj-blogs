@@ -1,1 +1,3 @@
-This is about me.
+<p style="text-align: justify;">
+DevOps / Site Reliability Engineer with strong experience operating and supporting production-scale distributed systems across cloud and on-prem environments. Proven ability to build and operate reliable, observable, and secure platforms, with hands-on expertise in CI/CD pipelines, AWS cloud infrastructure, Infrastructure as Code (Terraform), and Kubernetes-based containerized workloads. Trusted partner to software engineering teams, driving improvements in system operability, deployment consistency, and developer experience. Passionate about automation, reliability engineering, and operational excellence.
+</p>

@@ -156,13 +156,13 @@
     
       
         
-          <link href="https://github.com/username" rel="me">
+          <link href="https://github.com/josephajith1212" rel="me">
         
       
     
       
         
-          <link href="https://linkedin.com/in/username" rel="me">
+          <link href="https://www.linkedin.com/in/josephajith1212/" rel="me">
         
       
     
@@ -433,6 +433,16 @@
 
 
 
+  <script>
+    (function () {
+      var $mainmenu = $(".main-menu");
+      var path = window.location.pathname;
+      $mainmenu.find('a[href="' + path + '"]').each(function (i, e) {
+        $(e).children("p").addClass("active");
+      });
+    })();
+  </script>
+
 
   </div>
 </div>
@@ -635,7 +645,7 @@
         width="96"
         height="96"
         alt="Ajith Joseph"
-        src="/89587887_5906023272367133617_hu_4c55e75d5ae02232.png">
+        src="/89587887_12085237460859863136_hu_8ed6183e9a31c2b7.png">
     
   
   <div class="place-self-center">
@@ -647,8 +657,6 @@
         Ajith Joseph
       </div>
     
-    
-      <div class="text-sm text-neutral-700 dark:text-neutral-400">A little bit about you</div>
     
     <div class="text-2xl sm:text-lg">
   <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
@@ -668,7 +676,7 @@
       
         <a
           class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
-          href="https://github.com/username"
+          href="https://github.com/josephajith1212"
           target="_blank"
           aria-label="Github"
           rel="me noopener noreferrer"
@@ -680,7 +688,7 @@
       
         <a
           class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
-          href="https://linkedin.com/in/username"
+          href="https://www.linkedin.com/in/josephajith1212/"
           target="_blank"
           aria-label="Linkedin"
           rel="me noopener noreferrer"
@@ -796,6 +804,88 @@
   </div>
 </details>
 
+
+<script>
+  (function () {
+    'use strict'
+
+    const SCROLL_OFFSET_RATIO = 0.33
+    const TOC_SELECTOR = '#TableOfContents'
+    const ANCHOR_SELECTOR = '.anchor'
+    const TOC_LINK_SELECTOR = 'a[href^="#"]'
+    const NESTED_LIST_SELECTOR = 'li ul'
+    const ACTIVE_CLASS = 'active'
+
+    function getActiveAnchorId(anchors, offsetRatio) {
+      const threshold = window.scrollY + window.innerHeight * offsetRatio
+      const tocLinks = [...document.querySelectorAll('#TableOfContents a[href^="#"]')]
+      const tocIds = new Set(tocLinks.map(link => link.getAttribute('href').substring(1)))
+
+      for (let i = anchors.length - 1; i >= 0; i--) {
+        const top = anchors[i].getBoundingClientRect().top + window.scrollY
+        if (top <= threshold && tocIds.has(anchors[i].id)) {
+          return anchors[i].id
+        }
+      }
+      return anchors.find(anchor => tocIds.has(anchor.id))?.id || ''
+    }
+
+    function updateTOC({ toc, anchors, links, scrollOffset, collapseInactive }) {
+      const activeId = getActiveAnchorId(anchors, scrollOffset)
+      if (!activeId) return
+
+      links.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeId}`
+        link.classList.toggle(ACTIVE_CLASS, isActive)
+
+        if (collapseInactive) {
+          const ul = link.closest('li')?.querySelector('ul')
+          if (ul) ul.style.display = isActive ? '' : 'none'
+        }
+      })
+
+      if (collapseInactive) {
+        const activeLink = toc.querySelector(`a[href="#${CSS.escape(activeId)}"]`)
+        let el = activeLink
+        while (el && el !== toc) {
+          if (el.tagName === 'UL') el.style.display = ''
+          if (el.tagName === 'LI') el.querySelector('ul')?.style.setProperty('display', '')
+          el = el.parentElement
+        }
+      }
+    }
+
+    function initTOC() {
+      const toc = document.querySelector(TOC_SELECTOR)
+      if (!toc) return
+
+      const collapseInactive = true
+      const anchors = [...document.querySelectorAll(ANCHOR_SELECTOR)]
+      const links = [...toc.querySelectorAll(TOC_LINK_SELECTOR)]
+
+      if (collapseInactive) {
+        toc.querySelectorAll(NESTED_LIST_SELECTOR).forEach(ul => ul.style.display = 'none')
+      }
+
+      const config = {
+        toc,
+        anchors,
+        links,
+        scrollOffset: SCROLL_OFFSET_RATIO,
+        collapseInactive
+      }
+
+      window.addEventListener('scroll', () => updateTOC(config), { passive: true })
+      window.addEventListener('hashchange', () => updateTOC(config), { passive: true })
+
+      updateTOC(config)
+    }
+
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', initTOC)
+      : initTOC()
+  })()
+</script>
 
 
             

@@ -3,3 +3,7 @@ This website is a personal knowledge base focused on DevOps, cloud infrastructur
 </p>
 
 **Happy Hosting!** 🚀
+
+<div class="homepage-cta">
+  <a href="/blogs" class="btn">Go to Blogs </a>
+</div>
