@@ -32,19 +32,9 @@
     </item>
     
     <item>
-      <title>Building Production-Ready Container Images</title>
-      <link>http://localhost:1313/blogs/blog5-docker-image-best-practices/</link>
-      <pubDate>Thu, 23 Oct 2025 20:36:07 -0400</pubDate>
-      <author>ajith.joseph.1994@gmail.com (Ajith Joseph)</author>
-      <guid>http://localhost:1313/blogs/blog5-docker-image-best-practices/</guid>
-      <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blogs/blog5-docker-image-best-practices/featured.jpg" />
-    </item>
-    
-    <item>
       <title>Choosing the Right Deployment Strategy: A DevOps Perspective</title>
       <link>http://localhost:1313/blogs/blog7-deployment-strategies/</link>
-      <pubDate>Thu, 23 Oct 2025 20:36:07 -0400</pubDate>
+      <pubDate>Mon, 20 Oct 2025 20:36:07 -0400</pubDate>
       <author>ajith.joseph.1994@gmail.com (Ajith Joseph)</author>
       <guid>http://localhost:1313/blogs/blog7-deployment-strategies/</guid>
       <description></description>
@@ -52,9 +42,29 @@
     </item>
     
     <item>
+      <title>Nextcloud redirect issue fixed!</title>
+      <link>http://localhost:1313/blogs/blog6-nextcloud/</link>
+      <pubDate>Tue, 07 Oct 2025 20:36:07 -0400</pubDate>
+      <author>ajith.joseph.1994@gmail.com (Ajith Joseph)</author>
+      <guid>http://localhost:1313/blogs/blog6-nextcloud/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blogs/blog6-nextcloud/featured.jpg" />
+    </item>
+    
+    <item>
+      <title>Building Production-Ready Container Images</title>
+      <link>http://localhost:1313/blogs/blog5-docker-image-best-practices/</link>
+      <pubDate>Fri, 03 Oct 2025 20:36:07 -0400</pubDate>
+      <author>ajith.joseph.1994@gmail.com (Ajith Joseph)</author>
+      <guid>http://localhost:1313/blogs/blog5-docker-image-best-practices/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blogs/blog5-docker-image-best-practices/featured.jpg" />
+    </item>
+    
+    <item>
       <title>Docker Cheatsheet: Essential Commands for DevOps Engineers</title>
       <link>http://localhost:1313/blogs/blog4-docker-cheatsheet/</link>
-      <pubDate>Thu, 23 Oct 2025 20:36:07 -0400</pubDate>
+      <pubDate>Thu, 18 Sep 2025 20:36:07 -0400</pubDate>
       <author>ajith.joseph.1994@gmail.com (Ajith Joseph)</author>
       <guid>http://localhost:1313/blogs/blog4-docker-cheatsheet/</guid>
       <description></description>
@@ -62,9 +72,19 @@
     </item>
     
     <item>
+      <title>Understanding Kubernetes Services: Types and Use Cases</title>
+      <link>http://localhost:1313/blogs/blog3-k8s-services/</link>
+      <pubDate>Wed, 17 Sep 2025 20:36:07 -0400</pubDate>
+      <author>ajith.joseph.1994@gmail.com (Ajith Joseph)</author>
+      <guid>http://localhost:1313/blogs/blog3-k8s-services/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blogs/blog3-k8s-services/featured.png" />
+    </item>
+    
+    <item>
       <title>Getting Started with GitHub Actions</title>
       <link>http://localhost:1313/blogs/blog1-github-actions/</link>
-      <pubDate>Thu, 23 Oct 2025 20:36:07 -0400</pubDate>
+      <pubDate>Fri, 29 Aug 2025 20:36:07 -0400</pubDate>
       <author>ajith.joseph.1994@gmail.com (Ajith Joseph)</author>
       <guid>http://localhost:1313/blogs/blog1-github-actions/</guid>
       <description></description>
@@ -74,31 +94,11 @@
     <item>
       <title>How to Create Your First Helm Chart</title>
       <link>http://localhost:1313/blogs/blog2-first-helm-chart/</link>
-      <pubDate>Thu, 23 Oct 2025 20:36:07 -0400</pubDate>
+      <pubDate>Fri, 29 Aug 2025 20:36:07 -0400</pubDate>
       <author>ajith.joseph.1994@gmail.com (Ajith Joseph)</author>
       <guid>http://localhost:1313/blogs/blog2-first-helm-chart/</guid>
       <description></description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blogs/blog2-first-helm-chart/featured.jpg" />
-    </item>
-    
-    <item>
-      <title>Nextcloud redirect issue fixed!</title>
-      <link>http://localhost:1313/blogs/blog6-nextcloud/</link>
-      <pubDate>Thu, 23 Oct 2025 20:36:07 -0400</pubDate>
-      <author>ajith.joseph.1994@gmail.com (Ajith Joseph)</author>
-      <guid>http://localhost:1313/blogs/blog6-nextcloud/</guid>
-      <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blogs/blog6-nextcloud/featured.jpg" />
-    </item>
-    
-    <item>
-      <title>Understanding Kubernetes Services: Types and Use Cases</title>
-      <link>http://localhost:1313/blogs/blog3-k8s-services/</link>
-      <pubDate>Thu, 23 Oct 2025 20:36:07 -0400</pubDate>
-      <author>ajith.joseph.1994@gmail.com (Ajith Joseph)</author>
-      <guid>http://localhost:1313/blogs/blog3-k8s-services/</guid>
-      <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blogs/blog3-k8s-services/featured.png" />
     </item>
     
     <item>

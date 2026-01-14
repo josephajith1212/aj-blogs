@@ -1,5 +1,5 @@
 +++
-date = '2025-10-23T20:36:07-04:00'
+date = '2025-10-03T20:36:07-04:00'
 draft = false
 title = 'Building Production-Ready Container Images'
 +++

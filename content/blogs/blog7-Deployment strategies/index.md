@@ -1,5 +1,5 @@
 +++
-date = '2025-10-23T20:36:07-04:00'
+date = '2025-10-20T20:36:07-04:00'
 draft = false
 title = 'Choosing the Right Deployment Strategy: A DevOps Perspective'
 +++

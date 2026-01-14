@@ -104,8 +104,8 @@
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blogs">
-    <meta property="article:published_time" content="2025-10-23T20:36:07-04:00">
-    <meta property="article:modified_time" content="2025-10-23T20:36:07-04:00">
+    <meta property="article:published_time" content="2025-08-29T20:36:07-04:00">
+    <meta property="article:modified_time" content="2025-08-29T20:36:07-04:00">
     <meta property="og:image" content="http://localhost:1313/blogs/blog1-github-actions/featured.jpg">
 
   
@@ -130,15 +130,15 @@
       "name": "Ajith Joseph"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-10-23T20:36:07-04:00",
-    "datePublished": "2025-10-23T20:36:07-04:00",
+    "dateCreated": "2025-08-29T20:36:07-04:00",
+    "datePublished": "2025-08-29T20:36:07-04:00",
     
-    "dateModified": "2025-10-23T20:36:07-04:00",
+    "dateModified": "2025-08-29T20:36:07-04:00",
     
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "684"
+    "wordCount": "1424"
   }]
   </script>
 
@@ -563,7 +563,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-10-23T20:36:07-04:00">23 October 2025</time><span class="px-2 text-primary-500">&middot;</span><span>684 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span><span class="px-2 text-primary-500">&middot;</span>
+      <time datetime="2025-08-29T20:36:07-04:00">29 August 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1424 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">7 mins</span><span class="px-2 text-primary-500">&middot;</span>
 
 
 
@@ -736,12 +736,22 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#what-are-github-actions">What Are GitHub Actions?</a></li>
-    <li><a href="#why-should-you-use-github-actions">Why Should You Use GitHub Actions?</a></li>
-    <li><a href="#your-first-workflow">Your First Workflow</a></li>
-    <li><a href="#common-real-world-example-building-and-pushing-a-docker-image">Common Real-World Example: Building and Pushing a Docker Image</a></li>
-    <li><a href="#tips-for-success">Tips for Success</a></li>
-    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#what-exactly-is-github-actions">What Exactly is GitHub Actions?</a></li>
+    <li><a href="#the-key-concepts-you-need-to-know">The Key Concepts You Need to Know</a>
+      <ul>
+        <li><a href="#workflows">Workflows</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#jobs">Jobs</a></li>
+        <li><a href="#steps">Steps</a></li>
+        <li><a href="#actions">Actions</a></li>
+        <li><a href="#runners">Runners</a></li>
+      </ul>
+    </li>
+    <li><a href="#a-real-world-example-ci-with-docker-and-security-scanning">A Real World Example: CI with Docker and Security Scanning</a></li>
+    <li><a href="#using-secrets-to-keep-things-safe">Using Secrets to Keep Things Safe</a></li>
+    <li><a href="#viewing-your-workflow-results">Viewing Your Workflow Results</a></li>
+    <li><a href="#tips-from-my-experience">Tips from My Experience</a></li>
+    <li><a href="#wrapping-up">Wrapping Up</a></li>
   </ul>
 </nav>
   </div>
@@ -755,12 +765,22 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#what-are-github-actions">What Are GitHub Actions?</a></li>
-    <li><a href="#why-should-you-use-github-actions">Why Should You Use GitHub Actions?</a></li>
-    <li><a href="#your-first-workflow">Your First Workflow</a></li>
-    <li><a href="#common-real-world-example-building-and-pushing-a-docker-image">Common Real-World Example: Building and Pushing a Docker Image</a></li>
-    <li><a href="#tips-for-success">Tips for Success</a></li>
-    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#what-exactly-is-github-actions">What Exactly is GitHub Actions?</a></li>
+    <li><a href="#the-key-concepts-you-need-to-know">The Key Concepts You Need to Know</a>
+      <ul>
+        <li><a href="#workflows">Workflows</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#jobs">Jobs</a></li>
+        <li><a href="#steps">Steps</a></li>
+        <li><a href="#actions">Actions</a></li>
+        <li><a href="#runners">Runners</a></li>
+      </ul>
+    </li>
+    <li><a href="#a-real-world-example-ci-with-docker-and-security-scanning">A Real World Example: CI with Docker and Security Scanning</a></li>
+    <li><a href="#using-secrets-to-keep-things-safe">Using Secrets to Keep Things Safe</a></li>
+    <li><a href="#viewing-your-workflow-results">Viewing Your Workflow Results</a></li>
+    <li><a href="#tips-from-my-experience">Tips from My Experience</a></li>
+    <li><a href="#wrapping-up">Wrapping Up</a></li>
   </ul>
 </nav>
   </div>
@@ -861,148 +881,223 @@
         
 
         <div class="article-content max-w-prose mb-20">
-          <p>GitHub Actions is a powerful automation platform that allows you to build, test, and deploy your code directly from your GitHub repository. Whether you&rsquo;re a beginner or an experienced developer, GitHub Actions can save you countless hours by automating repetitive tasks. In this guide, we&rsquo;ll walk through the basics of setting up your first workflow.</p>
+          <p>Hey there! If you&rsquo;ve been wondering what all the fuss is about GitHub Actions, you&rsquo;re in the right place. I&rsquo;m going to walk you through this amazing feature that completely changed how I handle automation in my projects.</p>
 
-<h2 class="relative group">What Are GitHub Actions? 
-    <div id="what-are-github-actions" class="anchor"></div>
+<h2 class="relative group">What Exactly is GitHub Actions? 
+    <div id="what-exactly-is-github-actions" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#what-are-github-actions" aria-label="Anchor">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#what-exactly-is-github-actions" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
-<p>GitHub Actions are automated workflows that run on GitHub&rsquo;s servers whenever specific events occur in your repository. These events could be a push to a branch, a pull request, or even a scheduled time. Think of it as a virtual assistant that watches your repository and performs tasks automatically.</p>
-<p>Instead of manually running tests or deploying your code, you can define these steps in a file, commit it to your repository, and GitHub will handle the rest. This is especially useful for DevOps teams looking to implement CI/CD pipelines without managing additional infrastructure.</p>
+<p>So here&rsquo;s the thing: GitHub Actions is basically your personal automation buddy that lives right inside your GitHub repository. It&rsquo;s a feature that lets you write custom automated workflows to run whenever something happens in your repo. Think of it as a robot that does your bidding whenever you push code, open a pull request, or even on a schedule you set up.</p>
+<p>I remember when I first started using GitHub Actions, I was coming from managing Jenkins servers and writing complicated pipeline scripts. GitHub Actions felt like a breath of fresh air because everything was integrated directly into my repository. No extra servers to maintain, no complex setup. Just pure automation living alongside your code.</p>
 
-<h2 class="relative group">Why Should You Use GitHub Actions? 
-    <div id="why-should-you-use-github-actions" class="anchor"></div>
+<h2 class="relative group">The Key Concepts You Need to Know 
+    <div id="the-key-concepts-you-need-to-know" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#why-should-you-use-github-actions" aria-label="Anchor">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#the-key-concepts-you-need-to-know" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
-<p><strong>No extra infrastructure needed.</strong> GitHub Actions runs on GitHub&rsquo;s servers, so you don&rsquo;t need to set up and maintain separate CI/CD servers.</p>
-<p><strong>Easy integration.</strong> Since Actions are built into GitHub, they integrate seamlessly with your repository without complex setup.</p>
-<p><strong>Cost-effective.</strong> GitHub provides generous free limits for public repositories and reasonable pricing for private ones.</p>
-<p><strong>Flexibility.</strong> You can automate almost anything—running tests, building Docker images, deploying to cloud platforms, or sending notifications.</p>
+<p>Before we dive into actually building workflows, let me break down the main concepts. Don&rsquo;t worry if it seems like a lot at first, I&rsquo;ll explain each piece and it&rsquo;ll all click together.</p>
 
-<h2 class="relative group">Your First Workflow 
-    <div id="your-first-workflow" class="anchor"></div>
+<h3 class="relative group">Workflows 
+    <div id="workflows" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#your-first-workflow" aria-label="Anchor">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#workflows" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>A workflow is basically a complete automated process. You define it using a YAML file and store it in your repo under the <code>.github/workflows</code> directory. Think of it as your blueprint for automation. The workflow contains all the instructions for what should happen and when.</p>
+
+<h3 class="relative group">Events 
+    <div id="events" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#events" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Events are the triggers that kick off your workflow. Something happens in your GitHub repository or even outside of it, and boom, your workflow starts running. Some common events I use all the time are:</p>
+<ul>
+<li><strong>push</strong>: Triggers when someone pushes code to your repository</li>
+<li><strong>pull_request</strong>: Triggers when someone opens or updates a pull request</li>
+<li><strong>schedule</strong>: Lets you run workflows on a schedule, like a cron job</li>
+<li><strong>workflow_dispatch</strong>: Allows you to manually trigger a workflow from the UI</li>
+</ul>
+<p>You can get pretty specific with these triggers too. For example, you can say &ldquo;only run this when someone pushes to the main branch&rdquo; or &ldquo;only when certain files change&rdquo;. That&rsquo;s the kind of control I love.</p>
+
+<h3 class="relative group">Jobs 
+    <div id="jobs" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#jobs" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Jobs are collections of steps, and here&rsquo;s the cool part: they run in parallel by default. So if you have multiple jobs, they&rsquo;ll all start at the same time unless you tell them otherwise. You can also make jobs wait for other jobs to finish using the <code>needs</code> keyword. This is super useful when you have dependencies between different parts of your workflow.</p>
+
+<h3 class="relative group">Steps 
+    <div id="steps" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#steps" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Steps are the individual tasks within a job. Each step is a single command or action that gets executed in order. Steps can either run a script you write (using bash, Python, whatever you want) or use a pre built action from the GitHub Marketplace.</p>
+
+<h3 class="relative group">Actions 
+    <div id="actions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#actions" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Actions are reusable blocks of code that do specific things. GitHub provides a bunch of official actions that are super helpful, and the community has created thousands more. You can find actions for setting up Node.js, running tests, deploying to cloud providers, or basically anything else you can imagine.</p>
+<p>I use the <code>actions/checkout</code> action in basically every workflow because it checks out your code so your job can access it. It&rsquo;s one of those essential actions that&rsquo;s just always there.</p>
+
+<h3 class="relative group">Runners 
+    <div id="runners" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#runners" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>A runner is the machine that actually executes your workflow. GitHub provides hosted runners (ubuntu, windows, macos) that you can use for free if your repository is public. If you need more control or privacy, you can set up self hosted runners on your own infrastructure. For most of my projects, the GitHub hosted runners work perfectly fine.</p>
+
+<h2 class="relative group">A Real World Example: CI with Docker and Security Scanning 
+    <div id="a-real-world-example-ci-with-docker-and-security-scanning" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#a-real-world-example-ci-with-docker-and-security-scanning" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
-<p>Let&rsquo;s create a simple workflow that runs tests whenever you push code to your repository.</p>
-<p>First, create a directory structure in your repository:</p>
-<pre tabindex="0"><code>.github/workflows/
-</code></pre><p>Inside the <code>.github/workflows</code> directory, create a file named <code>test.yml</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run Tests</span><span class="w">
+<p>Let me show you a workflow that I actually use in production. This one handles building and pushing Docker images while running security scans. It&rsquo;s what I use with GitOps deployments, and it covers a lot of real world concerns like testing, code quality, security, and containerization.</p>
+<p>First, create this file in your repo:</p>
+<pre tabindex="0"><code>.github/
+  workflows/
+    ci-build-push.yml
+</code></pre><p>Here&rsquo;s the complete workflow:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">CI - Build &amp; Push Image (GitOps)</span><span class="w"> </span><span class="c"># Descriptive workflow name</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="c"># Define when this workflow runs</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="c"># Trigger on code pushes</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">main</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">main</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">main</span><span class="w"> </span><span class="c"># Only for the main branch</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w"> </span><span class="c"># Also run on pull requests</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">test</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v3</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Set up Python</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/setup-python@v4</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.11&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install dependencies</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
-</span></span></span><span class="line"><span class="cl"><span class="sd">          python -m pip install --upgrade pip
-</span></span></span><span class="line"><span class="cl"><span class="sd">          pip install pytest</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Run tests</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">pytest</span><span class="w">
-</span></span></span></code></pre></div><p>Let&rsquo;s break down what this workflow does:</p>
-<p><strong>name:</strong> The name displayed on GitHub for this workflow.</p>
-<p><strong>on:</strong> Defines when the workflow runs. In this case, it runs on <code>push</code> events to the <code>main</code> branch and on <code>pull_request</code> events.</p>
-<p><strong>jobs:</strong> Contains the tasks you want to execute.</p>
-<p><strong>runs-on:</strong> Specifies the machine type to run on. <code>ubuntu-latest</code> is a common choice.</p>
-<p><strong>steps:</strong> Individual commands or actions to execute in order.</p>
-<p><strong>uses:</strong> Runs a pre-built action from the GitHub marketplace. Here, we&rsquo;re using <code>actions/checkout@v3</code> to access your repository code and <code>actions/setup-python@v4</code> to set up Python.</p>
-<p><strong>run:</strong> Executes shell commands directly.</p>
-
-<h2 class="relative group">Common Real-World Example: Building and Pushing a Docker Image 
-    <div id="common-real-world-example-building-and-pushing-a-docker-image" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#common-real-world-example-building-and-pushing-a-docker-image" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<p>Here&rsquo;s a more practical example that builds a Docker image and pushes it to a container registry:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build and Push Docker Image</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="c"># Single job that does everything</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w"> </span><span class="c"># Use Ubuntu runner</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">main</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v3</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Set up Docker Buildx</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">docker/setup-buildx-action@v2</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Log in to Docker Hub</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">docker/login-action@v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v4</span><span class="w"> </span><span class="c"># Clone your repository code</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/setup-node@v4</span><span class="w"> </span><span class="c"># Install Node.js runtime</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.DOCKER_USERNAME }}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.DOCKER_PASSWORD }}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build and push</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">docker/build-push-action@v4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="c"># Use Node version 20</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">npm ci</span><span class="w"> </span><span class="c"># Clean install of dependencies (better than npm install for CI)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">npm test</span><span class="w"> </span><span class="c"># Run all unit tests to catch bugs early</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses: SonarSource/sonarqube-scan-action@v2 # SAST</span><span class="p">:</span><span class="w"> </span><span class="l">Static Application Security Testing</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">SONAR_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.SONAR_TOKEN }}</span><span class="w"> </span><span class="c"># Your SonarQube security token (keep it secret!)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">SONAR_HOST_URL</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.SONAR_HOST_URL }}</span><span class="w"> </span><span class="c"># Your SonarQube server URL</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">aquasecurity/trivy-action@v0.24.0</span><span class="w"> </span><span class="c"># Scan for filesystem vulnerabilities</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l">.</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.DOCKER_USERNAME }}/my-app:latest</span><span class="w">
-</span></span></span></code></pre></div><p>Notice the <code>${{ secrets.DOCKER_USERNAME }}</code> syntax. This references GitHub Secrets, which store sensitive information like credentials. You can add secrets in your repository settings under &ldquo;Secrets and variables.&rdquo;</p>
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">scan-type</span><span class="p">:</span><span class="w"> </span><span class="l">fs</span><span class="w"> </span><span class="c"># Scan the filesystem for vulnerabilities</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l">HIGH,CRITICAL</span><span class="w"> </span><span class="c"># Only fail on high and critical severity issues</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">exit-code</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="c"># Fail the job if critical issues are found</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">docker/login-action@v3</span><span class="w"> </span><span class="c"># Login to Docker registry (Docker Hub in this case)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.DOCKERHUB_USERNAME }}</span><span class="w"> </span><span class="c"># Your Docker Hub username from secrets</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.DOCKERHUB_TOKEN }}</span><span class="w"> </span><span class="c"># Your Docker Hub token from secrets</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">docker/build-push-action@v5</span><span class="w"> </span><span class="c"># Build and push Docker image</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># Push the built image to the registry</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="l">|</span><span class="w"> </span><span class="c"># Tag the image with multiple tags</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="l">username/app:${{ github.sha }}</span><span class="w"> </span><span class="c"># Use commit SHA as tag for unique identification</span><span class="w">
+</span></span></span></code></pre></div><p>This workflow is a complete CI/CD pipeline. Here&rsquo;s what happens step by step: first, it checks out your code and sets up Node.js. Then it installs dependencies and runs your tests. Next, it does a SAST scan using SonarQube to check for code quality issues. After that, Trivy scans your filesystem for known vulnerabilities. If everything passes, it logs into Docker Hub and builds your Docker image, tagging it with the commit SHA. This makes it GitOps friendly because each image is uniquely identifiable by its commit.</p>
+<p>The really powerful part here is using <code>${{ github.sha }}</code> as the image tag. This means each commit gets a unique Docker image, which is perfect for GitOps workflows where you can reference exact versions in your deployment manifests.</p>
 
-<h2 class="relative group">Tips for Success 
-    <div id="tips-for-success" class="anchor"></div>
+<h2 class="relative group">Using Secrets to Keep Things Safe 
+    <div id="using-secrets-to-keep-things-safe" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#tips-for-success" aria-label="Anchor">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#using-secrets-to-keep-things-safe" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
-<p><strong>Start simple.</strong> Begin with basic workflows like running tests or linting your code before moving to complex deployments.</p>
-<p><strong>Use marketplace actions.</strong> The GitHub marketplace has thousands of pre-built actions. Instead of writing everything from scratch, leverage existing solutions.</p>
-<p><strong>Monitor logs.</strong> When a workflow fails, GitHub shows detailed logs. Always check these logs to understand what went wrong.</p>
-<p><strong>Test locally first.</strong> Use tools like <code>act</code> to test your workflows locally before pushing to GitHub, saving time and preventing failed runs.</p>
+<p>GitHub helps you with Secrets. You can set them in your repository settings under &ldquo;Secrets and variables&rdquo;. Then you can access them in your workflow like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl">- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy to production</span><span class="w"> </span><span class="c"># Step name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">deploy.sh</span><span class="w"> </span><span class="c"># Run deployment script</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">env</span><span class="p">:</span><span class="w"> </span><span class="c"># Define environment variables</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">API_KEY</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.MY_API_KEY }}</span><span class="w"> </span><span class="c"># Reference secret API key</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">WEBHOOK_URL</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.WEBHOOK_URL }}</span><span class="w"> </span><span class="c"># Reference secret webhook URL</span><span class="w">
+</span></span></span></code></pre></div><p>The secrets are masked in the logs too, so even if someone has access to your workflow runs, they can&rsquo;t see the actual values.</p>
 
-<h2 class="relative group">Conclusion 
-    <div id="conclusion" class="anchor"></div>
+<h2 class="relative group">Viewing Your Workflow Results 
+    <div id="viewing-your-workflow-results" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#conclusion" aria-label="Anchor">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#viewing-your-workflow-results" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
-<p>GitHub Actions eliminates the need for external CI/CD tools and makes automation accessible to everyone. By starting with simple workflows and gradually adding complexity, you can automate your entire development pipeline. Whether you&rsquo;re running tests, building containers, or deploying applications, GitHub Actions provides a seamless, integrated solution. Start with the examples above, explore the GitHub marketplace, and soon you&rsquo;ll be automating tasks that once required manual intervention.</p>
+<p>After you&rsquo;ve pushed your workflow file and triggered it, you can see what&rsquo;s happening by going to your repository and clicking on the &ldquo;Actions&rdquo; tab. You&rsquo;ll see all your past workflow runs there. Click on one and you can see the detailed logs of what happened at each step.</p>
+
+<h2 class="relative group">Tips from My Experience 
+    <div id="tips-from-my-experience" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#tips-from-my-experience" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Here are some things I&rsquo;ve learned along the way:</p>
+<p><strong>Use the GitHub Marketplace</strong>: Before you write custom scripts, check the Marketplace. Someone probably already created an action for what you need.</p>
+<p><strong>Specify the Action Versions</strong>: Always pin actions (@v4, @v2, or commit SHA) to avoid breaking changes.</p>
+<p><strong>Resource Limits</strong>: GitHub-hosted runners have CPU, memory, and runtime constraints. For heavy builds, consider self-hosted runners or split jobs into smaller steps.</p>
+<p><strong>Use descriptive step names</strong>: When you run a workflow, those step names show up in the logs. Make them clear so you (and your team) know what&rsquo;s happening.</p>
+<p><strong>Exit Codes</strong>: Steps with non-zero exit code fail the job. Use exit-code in actions like Trivy intentionally. Use &ldquo;continue-on-error&rdquo; only for optional steps.</p>
+
+<h2 class="relative group">Wrapping Up 
+    <div id="wrapping-up" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#wrapping-up" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>GitHub Actions is honestly one of my favorite tools in the DevOps toolkit. It&rsquo;s powerful, flexible, and integrated directly into the platform you&rsquo;re already using. The fact that you can automate basically anything right from your repository is just amazing.</p>
+<p>Whether you&rsquo;re running tests, building Docker images, deploying applications, or just automating repetitive tasks, GitHub Actions has got you covered. And the best part? For public repositories, it&rsquo;s completely free.</p>
+<p>Hope you found this helpful. Happy hosting!</p>
 
           
           
@@ -1115,7 +1210,7 @@
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-10-23T20:36:07-04:00">23 October 2025</time>
+                    <time datetime="2025-08-29T20:36:07-04:00">29 August 2025</time>
                   
                 </span>
               </span>
@@ -1124,14 +1219,14 @@
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/blogs/blog4-docker-cheatsheet/">
+            <a class="flex text-right group ml-3" href="/blogs/blog3-k8s-services/">
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Docker Cheatsheet: Essential Commands for DevOps Engineers</span
+                  >Understanding Kubernetes Services: Types and Use Cases</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-10-23T20:36:07-04:00">23 October 2025</time>
+                    <time datetime="2025-09-17T20:36:07-04:00">17 September 2025</time>
                   
                 </span>
               </span>
