@@ -32,6 +32,16 @@
     </item>
     
     <item>
+      <title>Network Debugging Guide</title>
+      <link>http://localhost:1313/blogs/blog10-network-debugging-guide/</link>
+      <pubDate>Fri, 19 Dec 2025 17:03:00 -0500</pubDate>
+      <author>ajith.joseph.1994@gmail.com (Ajith Joseph)</author>
+      <guid>http://localhost:1313/blogs/blog10-network-debugging-guide/</guid>
+      <description>A practical guide to systematically troubleshooting network issues in DevOps environments.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blogs/blog10-network-debugging-guide/featured.jpg" />
+    </item>
+    
+    <item>
       <title>Choosing the Right Deployment Strategy: A DevOps Perspective</title>
       <link>http://localhost:1313/blogs/blog7-deployment-strategies/</link>
       <pubDate>Mon, 20 Oct 2025 20:36:07 -0400</pubDate>

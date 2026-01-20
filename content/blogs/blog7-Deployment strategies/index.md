@@ -119,7 +119,7 @@ You typically use a feature flag service like LaunchDarkly, Unleash, or even a s
 
 The best part? Feature flags work alongside any other strategy. You can use feature flags with rolling deployments, canary releases, or blue green switching. They make everything safer by giving you a quick kill switch.
 
-## Putting It All Together
+## Conclusion
 
 | Strategy | Downtime | Speed | Complexity | Best For | Risk Level |
 |----------|----------|-------|-----------|----------|-----------|

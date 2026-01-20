@@ -27,6 +27,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>http://localhost:1313/blogs/blog10-network-debugging-guide/</loc>
+    <lastmod>2025-12-19T17:03:00-05:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/blogs/blog7-deployment-strategies/</loc>
     <lastmod>2025-10-20T20:36:07-04:00</lastmod>
     <changefreq>daily</changefreq>
@@ -57,6 +63,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>http://localhost:1313/blogs/blog1-github-actions/</loc>
+    <lastmod>2025-08-29T20:36:07-04:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/blogs/blog2-first-helm-chart/</loc>
     <lastmod>2025-08-29T20:36:07-04:00</lastmod>
     <changefreq>daily</changefreq>
@@ -69,11 +81,6 @@
   </url>
   <url>
     <loc>http://localhost:1313/about/videos/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/blogs/blog1-github-actions/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>

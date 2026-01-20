@@ -283,7 +283,7 @@ trivy image myapp:1.0.0
 
 These tools check for known vulnerabilities in base images and dependencies, helping you catch issues before they reach production.
 
-## Key Takeaways
+## Conclusion
 
 Building better container images is a journey, not a destination. Start with the fundamentals: understand layer caching and use appropriate base images. Progress toward security by running as non-root users and removing unnecessary dependencies. Finally, implement advanced techniques like multi-stage builds, secrets management, and image scanning.
 
